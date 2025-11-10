@@ -31,25 +31,25 @@ export default function ServicesPreview() {
   const featuredServices = services.slice(0, 6);
 
   return (
-    <section className="py-20 bg-slate-50">
+    <section className="py-20 bg-slate-50 min-h-screen">
       <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
-          className="text-center mb-16"
+          viewport={{ once: true, amount: 0.2 }}
+          className="text-center mb-12 md:mb-16"
         >
-          <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
+          <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-slate-900 mb-3 md:mb-4">
             Layanan Hukum Kami
           </h2>
-          <p className="text-xl text-slate-600 max-w-3xl mx-auto">
+          <p className="text-base md:text-lg lg:text-xl text-slate-600 max-w-3xl mx-auto px-4">
             Kami menyediakan layanan hukum komprehensif untuk memenuhi berbagai kebutuhan klien, 
             dari individu hingga perusahaan multinasional.
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 mb-8 md:mb-12">
           {featuredServices.map((service, index) => {
             const IconComponent = serviceIcons[service.slug as keyof typeof serviceIcons] || Building2;
             
@@ -58,8 +58,8 @@ export default function ServicesPreview() {
                 key={service.id}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: index * 0.05 }}
+                viewport={{ once: true, amount: 0.1 }}
               >
                 <Card className="h-full hover:shadow-lg transition-all duration-300 border-0 shadow-md group cursor-pointer overflow-hidden">
                   <Link href={`/layanan/${service.slug}`}>
@@ -87,14 +87,14 @@ export default function ServicesPreview() {
                         </div>
 
                         {/* Content */}
-                        <div className="p-6 flex flex-col flex-1">
+                        <div className="p-5 md:p-6 flex flex-col flex-1 min-h-[200px]">
                           {/* Title */}
-                          <h3 className="text-xl font-semibold text-slate-900 mb-3 group-hover:text-red-600 transition-colors duration-300">
+                          <h3 className="text-lg md:text-xl font-semibold text-slate-900 mb-2 md:mb-3 group-hover:text-red-600 transition-colors duration-300">
                             {service.title}
                           </h3>
 
                           {/* Description */}
-                          <p className="text-slate-600 leading-relaxed mb-6 flex-1 text-sm">
+                          <p className="text-slate-600 leading-relaxed mb-4 md:mb-6 flex-1 text-sm">
                             {service.short_description}
                           </p>
 
