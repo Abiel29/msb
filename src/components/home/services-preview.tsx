@@ -4,7 +4,6 @@ import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { Card, CardContent } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { 
   Building2, 
@@ -16,7 +15,6 @@ import {
   ArrowRight 
 } from 'lucide-react';
 import { services } from '@/lib/dummy-data';
-import { motion } from 'framer-motion';
 
 const serviceIcons = {
   'hukum-korporasi': Building2,
@@ -31,15 +29,9 @@ export default function ServicesPreview() {
   const featuredServices = services.slice(0, 6);
 
   return (
-    <section className="py-20 bg-slate-50 min-h-screen">
+    <section className="py-12 md:py-20 bg-slate-50">
       <div className="container mx-auto px-4">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true, amount: 0.2 }}
-          className="text-center mb-12 md:mb-16"
-        >
+        <div className="text-center mb-12 md:mb-16">
           <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-slate-900 mb-3 md:mb-4">
             Layanan Hukum Kami
           </h2>
@@ -47,20 +39,14 @@ export default function ServicesPreview() {
             Kami menyediakan layanan hukum komprehensif untuk memenuhi berbagai kebutuhan klien, 
             dari individu hingga perusahaan multinasional.
           </p>
-        </motion.div>
+        </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 mb-8 md:mb-12">
           {featuredServices.map((service, index) => {
             const IconComponent = serviceIcons[service.slug as keyof typeof serviceIcons] || Building2;
             
             return (
-              <motion.div
-                key={service.id}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.05 }}
-                viewport={{ once: true, amount: 0.1 }}
-              >
+              <div key={service.id}>
                 <Card className="h-full hover:shadow-lg transition-all duration-300 border-0 shadow-md group cursor-pointer overflow-hidden">
                   <Link href={`/layanan/${service.slug}`}>
                     <CardContent className="p-0">
@@ -108,7 +94,7 @@ export default function ServicesPreview() {
                     </CardContent>
                   </Link>
                 </Card>
-              </motion.div>
+              </div>
             );
           })}
         </div>

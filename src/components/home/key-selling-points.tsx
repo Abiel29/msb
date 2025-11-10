@@ -63,32 +63,32 @@ export default function KeySellingPoints() {
     <section className="py-20 bg-slate-50">
       <div className="container mx-auto px-4">
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
-          className="text-center mb-16"
+          transition={{ duration: 0.5 }}
+          viewport={{ once: false, margin: "-100px" }}
+          className="text-center mb-12 md:mb-16"
         >
-          <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
+          <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-slate-900 mb-3 md:mb-4">
             Mengapa Memilih Kami?
           </h2>
-          <p className="text-xl text-slate-600 max-w-3xl mx-auto">
+          <p className="text-base md:text-lg lg:text-xl text-slate-600 max-w-3xl mx-auto px-4">
             Komitmen kami adalah memberikan layanan hukum terbaik dengan standar profesional tertinggi
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
           {keyPoints.map((point, index) => (
             <motion.div
               key={index}
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
-              viewport={{ once: true }}
+              transition={{ duration: 0.4 }}
+              viewport={{ once: false, margin: "-50px" }}
             >
               <Card className="h-full hover:shadow-xl hover:scale-105 transition-all duration-300 border-0 shadow-md group">
-                <CardContent className="p-8">
-                  <div className="flex items-start space-x-4">
+                <CardContent className="p-5 md:p-6 lg:p-8">
+                  <div className="flex items-start space-x-3 md:space-x-4">
                     <div className="flex-shrink-0">
                       <motion.div 
                         className="w-12 h-12 bg-red-100 rounded-lg flex items-center justify-center group-hover:bg-red-200 transition-colors duration-300"
@@ -100,7 +100,7 @@ export default function KeySellingPoints() {
                     </div>
                     <div className="flex-1">
                       <div className="flex items-center space-x-2 mb-3">
-                        <h3 className="text-lg font-semibold text-slate-900 group-hover:text-red-600 transition-colors duration-300">
+                        <h3 className="text-base md:text-lg font-semibold text-slate-900 group-hover:text-red-600 transition-colors duration-300">
                           {point.number ? (
                             <>
                               <NumberTicker 
@@ -120,7 +120,7 @@ export default function KeySellingPoints() {
                           {point.badge}
                         </Badge>
                       </div>
-                      <p className="text-slate-600 leading-relaxed group-hover:text-slate-700 transition-colors duration-300">
+                      <p className="text-sm md:text-base text-slate-600 leading-relaxed group-hover:text-slate-700 transition-colors duration-300">
                         {point.description}
                       </p>
                     </div>
