@@ -79,15 +79,15 @@ const processSteps = [
 
 export default function ProcessRoadmap() {
   return (
-    <section className="py-20 bg-gradient-to-br from-slate-50 via-white to-slate-50">
+    <section className="py-20 bg-gradient-to-br from-slate-50 via-white to-slate-50 min-h-screen">
       <div className="container mx-auto px-4">
         {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
-          className="text-center mb-16"
+          viewport={{ once: true, amount: 0.2 }}
+          className="text-center mb-12 md:mb-16"
         >
           <motion.div
             initial={{ scale: 0.9, opacity: 0 }}
@@ -100,10 +100,10 @@ export default function ProcessRoadmap() {
               <Clock className="h-8 w-8 text-white" />
             </div>
           </motion.div>
-          <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
+          <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-slate-900 mb-3 md:mb-4">
             Road Map Proses di MSB
           </h2>
-          <p className="text-xl text-slate-600 max-w-3xl mx-auto">
+          <p className="text-base md:text-lg lg:text-xl text-slate-600 max-w-3xl mx-auto px-4">
             Proses kerja yang terstruktur dan transparan untuk memastikan hasil terbaik bagi klien
           </p>
         </motion.div>
@@ -112,7 +112,7 @@ export default function ProcessRoadmap() {
         <div className="max-w-7xl mx-auto">
           <div className="relative">
             {/* Steps Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6 md:gap-8">
               {processSteps.map((step, index) => {
                 const IconComponent = step.icon;
                 return (
@@ -120,19 +120,19 @@ export default function ProcessRoadmap() {
                     key={step.number}
                     initial={{ opacity: 0, y: 30 }}
                     whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6, delay: index * 0.1 }}
-                    viewport={{ once: true }}
+                    transition={{ duration: 0.6, delay: index * 0.05 }}
+                    viewport={{ once: true, amount: 0.1 }}
                     className="relative"
                   >
                     <Card className="h-full border-0 shadow-lg hover:shadow-xl transition-all duration-300 group overflow-hidden">
-                      <CardContent className="p-6 text-center">
+                      <CardContent className="p-5 md:p-6 text-center min-h-[320px]">
                         {/* Step Number Circle */}
                         <motion.div
                           whileHover={{ scale: 1.1, rotate: 360 }}
                           transition={{ duration: 0.6 }}
-                          className={`w-20 h-20 ${step.color} rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg relative z-10`}
+                          className={`w-16 h-16 md:w-20 md:h-20 ${step.color} rounded-full flex items-center justify-center mx-auto mb-3 md:mb-4 shadow-lg relative z-10`}
                         >
-                          <IconComponent className="h-10 w-10 text-white" />
+                          <IconComponent className="h-8 w-8 md:h-10 md:w-10 text-white" />
                         </motion.div>
 
                         {/* Step Number Badge */}
@@ -141,12 +141,12 @@ export default function ProcessRoadmap() {
                         </div>
 
                         {/* Title */}
-                        <h3 className="text-lg font-bold text-slate-900 mb-2 group-hover:text-red-600 transition-colors duration-300">
+                        <h3 className="text-base md:text-lg font-bold text-slate-900 mb-2 group-hover:text-red-600 transition-colors duration-300">
                           {step.title}
                         </h3>
 
                         {/* Description */}
-                        <p className="text-slate-600 text-sm leading-relaxed mb-4">
+                        <p className="text-slate-600 text-xs md:text-sm leading-relaxed mb-3 md:mb-4">
                           {step.description}
                         </p>
 
