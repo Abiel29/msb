@@ -28,7 +28,7 @@ export default function ManagingPartnerHero() {
               <div className="grid grid-cols-1 lg:grid-cols-3 gap-0">
                 <div className="relative h-96 lg:h-auto lg:col-span-1">
                   <Image 
-                    src={managingPartner.image_url || '/img/mulyadi.jpg'} 
+                    src={managingPartner.image_url || '/img/Mulyadi.jpg'} 
                     alt={managingPartner.name}
                     fill
                     className="object-cover"

@@ -35,7 +35,7 @@ export const teamMembers: TeamMember[] = [
     position: 'CEO of MSB & Partners',
     specialization: 'Sengketa Bisnis & Komersial, Litigasi Perdata & Pidana, Hubungan Industrial',
     bio: 'Mulyadi Sinarta Batubara adalah Founder dari MSB & Partners. Sebagai Managing Partner, ia memiliki wawasan langsung terhadap berbagai isu yang mencakup sengketa bisnis dan komersial, serta pemahaman yang kuat akan pentingnya memberikan solusi hukum yang tepat waktu, efisien, dan pragmatis, baik melalui penyelesaian secara damai di pengadilan maupun di luar pengadilan. Mulyadi memiliki peran dan pengaruh yang signifikan dalam menjalankan berbagai prosedur hukum dan penyelesaian sengketa atas nama beragam klien, mulai dari korporasi besar hingga usaha kecil dan individu. Mulyadi meraih Gelar Sarjana Hukum dari Fakultas Hukum Universitas Kristen Indonesia, kemudian melanjutkan studi dan memperoleh Gelar Magister Hukum Universitas Tarumanagara. Mulyadi memiliki pengalaman luas dalam menangani berbagai kasus litigasi besar dan kompleks, termasuk perkara Pidana, Perdata, Hubungan Industrial.',
-    image_url: '/img/mulyadi.jpg',
+    image_url: '/img/Mulyadi.jpg',
     linkedin_url: 'https://linkedin.com/in/mulyadi-batubara',
     email: 'mulyadi@msbpartners.com',
     order_index: 1,
