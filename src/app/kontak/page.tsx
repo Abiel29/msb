@@ -1,6 +1,5 @@
 import React from 'react';
 import { Metadata } from 'next';
-import ContactForm from '@/components/contact/contact-form';
 import ContactInfo from '@/components/contact/contact-info';
 import ContactMap from '@/components/contact/contact-map';
 import MainLayout from '@/components/layout/main-layout';
@@ -35,13 +34,8 @@ export default function ContactPage() {
           </div>
         </section>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-0">
-          {/* Contact Form */}
-          <ContactForm />
-
-          {/* Contact Info */}
-          <ContactInfo />
-        </div>
+        {/* Contact Info */}
+        <ContactInfo />
 
         {/* Map */}
         <ContactMap />

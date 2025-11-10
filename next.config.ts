@@ -1,7 +1,6 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  output: 'standalone',
   eslint: {
     ignoreDuringBuilds: true,
   },
@@ -9,10 +8,23 @@ const nextConfig: NextConfig = {
     ignoreBuildErrors: true,
   },
   images: {
+    unoptimized: true,
     remotePatterns: [
-      { protocol: 'https', hostname: 'images.unsplash.com' },
-      { protocol: 'https', hostname: 'static.cdnlogo.com' },
-      { protocol: 'https', hostname: 'cdnlogo.com' },
+      { 
+        protocol: 'https', 
+        hostname: 'images.unsplash.com',
+        pathname: '/**'
+      },
+      { 
+        protocol: 'https', 
+        hostname: 'static.cdnlogo.com',
+        pathname: '/**'
+      },
+      { 
+        protocol: 'https', 
+        hostname: 'cdnlogo.com',
+        pathname: '/**'
+      },
     ],
   },
 };

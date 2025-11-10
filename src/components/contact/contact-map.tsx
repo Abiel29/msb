@@ -43,14 +43,14 @@ export default function ContactMap() {
                 <div className="relative h-96 lg:h-[500px]">
                   {/* Google Maps Embed */}
                   <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.521260322283!2d106.8195613!3d-6.1944491!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f5d2e764b12d%3A0x3d2ad6e1e0e9bcc8!2sJl.%20Jend.%20Sudirman%2C%20Jakarta%20Pusat%2C%20Daerah%20Khusus%20Ibukota%20Jakarta!5e0!3m2!1sen!2sid!4v1640995200000!5m2!1sen!2sid"
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.5338!2d106.8208!3d-6.1936!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f5d2e764b12d%3A0x5c3f0d7f8f8f8f8f!2sRatu%20Plaza!5e0!3m2!1sen!2sid!4v1699999999999!5m2!1sen!2sid&q=Ratu+Plaza,+Jl.+Jend.+Sudirman+No.9,+Jakarta+Pusat"
                     width="100%"
                     height="100%"
                     style={{ border: 0 }}
                     allowFullScreen
                     loading="lazy"
                     referrerPolicy="no-referrer-when-downgrade"
-                    title="Lokasi Kantor Hukum Prima & Associates"
+                    title="Lokasi Kantor MSB & Partners - Ratu Plaza"
                   ></iframe>
                   
                   {/* Map Overlay */}
@@ -64,7 +64,7 @@ export default function ContactMap() {
                           {firmInfo.name}
                         </h3>
                         <p className="text-slate-600 text-xs">
-                          Jl. Sudirman No. 123
+                          Ratu Plaza, Lantai 10
                         </p>
                       </div>
                     </div>
@@ -77,7 +77,7 @@ export default function ContactMap() {
                       className="bg-red-700 hover:bg-red-800 shadow-lg"
                     >
                       <a
-                        href={`https://maps.google.com/?q=${encodeURIComponent(firmInfo.address || '')}`}
+                        href="https://share.google/zfvdGfDmpj1LqlTY6"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="flex items-center space-x-2"
@@ -111,19 +111,19 @@ export default function ContactMap() {
                 <div className="space-y-2 text-sm text-slate-600">
                   <div className="flex justify-between">
                     <span>Plaza Indonesia</span>
-                    <span>2 menit</span>
-                  </div>
-                  <div className="flex justify-between">
-                    <span>Grand Indonesia</span>
-                    <span>3 menit</span>
-                  </div>
-                  <div className="flex justify-between">
-                    <span>MRT Bundaran HI</span>
                     <span>5 menit</span>
                   </div>
                   <div className="flex justify-between">
-                    <span>Hotel Indonesia</span>
+                    <span>Grand Indonesia</span>
                     <span>7 menit</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span>MRT Bundaran HI</span>
+                    <span>10 menit</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span>Hotel Indonesia</span>
+                    <span>8 menit</span>
                   </div>
                 </div>
               </CardContent>

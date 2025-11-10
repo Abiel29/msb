@@ -1,7 +1,7 @@
 import React from 'react';
 import { Metadata } from 'next';
 import ServicesGrid from '@/components/services/services-grid';
-import ServicesCTA from '@/components/services/services-cta';
+import ProcessRoadmap from '@/components/home/process-roadmap';
 import MainLayout from '@/components/layout/main-layout';
 import { firmInfo } from '@/lib/dummy-data';
 import Image from 'next/image';
@@ -35,7 +35,7 @@ export default function ServicesPage() {
         </section>
 
         <ServicesGrid />
-        <ServicesCTA />
+        <ProcessRoadmap />
       </div>
     </MainLayout>
   );
