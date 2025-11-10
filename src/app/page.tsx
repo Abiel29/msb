@@ -2,7 +2,6 @@ import HeroSection from '@/components/home/hero-section';
 import KeySellingPoints from '@/components/home/key-selling-points';
 import ServicesPreview from '@/components/home/services-preview';
 import ProcessRoadmap from '@/components/home/process-roadmap';
-import ScrollReveal from '@/components/ui/scroll-reveal';
 
 import MainLayout from '@/components/layout/main-layout';
 import PageWrapper from '@/components/ui/page-wrapper';
@@ -14,15 +13,9 @@ export default function Home() {
       <PageWrapper>
         <div className="min-h-screen">
           <HeroSection />
-          <ScrollReveal threshold={0.3} duration={1.0}>
-            <KeySellingPoints />
-          </ScrollReveal>
-          <ScrollReveal threshold={0.3} duration={0.8} delay={0.2}>
-            <ServicesPreview />
-          </ScrollReveal>
-          <ScrollReveal threshold={0.3} duration={0.8} delay={0.3}>
-            <ProcessRoadmap />
-          </ScrollReveal>
+          <KeySellingPoints />
+          <ServicesPreview />
+          <ProcessRoadmap />
         </div>
       </PageWrapper>
     </MainLayout>
