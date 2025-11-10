@@ -1,11 +1,9 @@
 "use client";
 
 import React, { useState, useEffect } from 'react';
-import Link from 'next/link';
 import NextImage from 'next/image';
 
-import { Button } from '@/components/ui/button';
-import { ArrowRight, Star, Quote } from 'lucide-react';
+import { Star, Quote } from 'lucide-react';
 import { firmInfo, testimonials } from '@/lib/dummy-data';
 import { motion } from 'framer-motion';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
@@ -20,16 +18,17 @@ import {
 import TypingAnimation from '@/components/ui/typing-animation';
 import GridPattern from '@/components/ui/grid-pattern';
 import Particles from '@/components/ui/particles';
-import MagneticButton from '@/components/ui/magnetic-button';
 
 export default function HeroSection() {
   const featuredTestimonials = testimonials.filter((t) => t.is_featured);
   const [api, setApi] = React.useState<CarouselApi | null>(null);
   
   // Animated text rotation
-  const rotatingWords = ['Bisnis', 'Perusahaan', 'Korporasi', 'Startup', 'UMKM', 'Institusi'];
+  const rotatingWords = [ 'Perusahaan', 'Korporasi', 'Startup', 'Institusi'];
   const [currentWordIndex, setCurrentWordIndex] = useState(0);
   const [isVisible, setIsVisible] = useState(true);
+  const [isMounted, setIsMounted] = useState(false);
+  
   const renderStars = (rating: number) =>
     Array.from({ length: 5 }, (_, i) => (
       <Star
@@ -38,8 +37,15 @@ export default function HeroSection() {
       />
     ));
 
+  // Mount effect
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
+
   // Text rotation effect
   useEffect(() => {
+    if (!isMounted) return;
+    
     const interval = setInterval(() => {
       setIsVisible(false);
       setTimeout(() => {
@@ -49,7 +55,7 @@ export default function HeroSection() {
     }, 2500);
 
     return () => clearInterval(interval);
-  }, [rotatingWords.length]);
+  }, [rotatingWords.length, isMounted]);
 
   React.useEffect(() => {
     if (!api || featuredTestimonials.length <= 1) return;
@@ -88,52 +94,26 @@ export default function HeroSection() {
                 duration={1500}
                 className="inline"
               />{' '}
-              <motion.span
-                key={currentWordIndex}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: isVisible ? 1 : 0, y: isVisible ? 0 : -20 }}
-                transition={{ duration: 0.3 }}
-                className="text-red-400 font-bold"
-              >
-                {rotatingWords[currentWordIndex]}
-              </motion.span>{' '}
+              {isMounted ? (
+                <motion.span
+                  key={currentWordIndex}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: isVisible ? 1 : 0, y: isVisible ? 0 : -20 }}
+                  transition={{ duration: 0.3 }}
+                  className="text-red-400 font-bold"
+                >
+                  {rotatingWords[currentWordIndex]}
+                </motion.span>
+              ) : (
+                <span className="text-red-400 font-bold">
+                  {rotatingWords[0]}
+                </span>
+              )}{' '}
               Anda
             </h1>
             <p className="text-base md:text-lg text-white/80 leading-relaxed max-w-2xl mx-auto">
               Solusi hukum terpercaya dengan pengalaman lebih dari 20 tahun
             </p>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="flex flex-col sm:flex-row gap-3 mt-8 justify-center"
-          >
-            <MagneticButton>
-              <Button
-                asChild
-                size="default"
-                className="bg-white text-red-600 hover:bg-red-50 hover:scale-105 transition-all duration-300 px-6 py-3 shadow-lg hover:shadow-xl"
-              >
-                <Link href="/kontak" className="flex items-center space-x-2">
-                  <span>Konsultasi Gratis</span>
-                  <ArrowRight className="h-4 w-4" />
-                </Link>
-              </Button>
-            </MagneticButton>
-            <MagneticButton>
-              <Button
-                asChild
-                variant="outline"
-                size="default"
-                className="border border-white/50 bg-transparent text-white hover:bg-white hover:text-red-600 hover:scale-105 transition-all duration-300 px-6 py-3"
-              >
-                <Link href="/layanan">
-                  <span>Layanan Kami</span>
-                </Link>
-              </Button>
-            </MagneticButton>
           </motion.div>
         </div>
       </div>

@@ -14,15 +14,10 @@ export default function Footer() {
           <div className="space-y-4">
             <div className="flex items-center space-x-2">
               <div className="w-8 h-8 bg-red-700 rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold text-lg">H</span>
+                <span className="text-white font-bold text-lg">M</span>
               </div>
-              <div>
-                <div className="font-bold text-lg">
-                  {firmInfo.name.split(' ')[0]} {firmInfo.name.split(' ')[1]}
-                </div>
-                <div className="text-sm text-slate-400 -mt-1">
-                  & Associates
-                </div>
+              <div className="font-bold text-lg">
+                {firmInfo.name}
               </div>
             </div>
             <p className="text-slate-300 text-sm leading-relaxed">
@@ -86,7 +81,7 @@ export default function Footer() {
                   href="/tim" 
                   className="text-slate-300 hover:text-white transition-colors duration-200 text-sm"
                 >
-                  Tim Kami
+                  Managing & Partners
                 </Link>
               </li>
               <li>

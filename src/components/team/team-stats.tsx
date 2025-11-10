@@ -8,9 +8,7 @@ import {
   GraduationCap, 
   Globe, 
   Clock, 
-  TrendingUp,
-  BookOpen,
-  Shield
+  BookOpen
 } from 'lucide-react';
 import { motion } from 'framer-motion';
 
@@ -59,67 +57,12 @@ const teamStats = [
   }
 ];
 
-const specializations = [
-  {
-    area: 'Hukum Korporasi',
-    experts: 4,
-    cases: '200+',
-    icon: Shield
-  },
-  {
-    area: 'Litigasi & Arbitrase',
-    experts: 3,
-    cases: '150+',
-    icon: Award
-  },
-  {
-    area: 'Hukum Properti',
-    experts: 2,
-    cases: '300+',
-    icon: Users
-  },
-  {
-    area: 'Hukum Keluarga',
-    experts: 2,
-    cases: '100+',
-    icon: Users
-  },
-  {
-    area: 'Hak Kekayaan Intelektual',
-    experts: 2,
-    cases: '80+',
-    icon: TrendingUp
-  },
-  {
-    area: 'Hukum Ketenagakerjaan',
-    experts: 2,
-    cases: '120+',
-    icon: Users
-  }
-];
-
 export default function TeamStats() {
   return (
     <section className="py-20 bg-slate-50">
       <div className="container mx-auto px-4">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
-          className="text-center mb-16"
-        >
-          <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
-            Keunggulan Tim Kami
-          </h2>
-          <p className="text-xl text-slate-600 max-w-3xl mx-auto">
-            Angka-angka yang menunjukkan komitmen dan pencapaian tim kami dalam memberikan 
-            layanan hukum berkualitas tinggi.
-          </p>
-        </motion.div>
-
         {/* Main Stats */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {teamStats.map((stat, index) => (
             <motion.div
               key={index}
@@ -147,99 +90,6 @@ export default function TeamStats() {
             </motion.div>
           ))}
         </div>
-
-        {/* Specialization Breakdown */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.3 }}
-          viewport={{ once: true }}
-          className="mb-16"
-        >
-          <Card className="border-0 shadow-lg">
-            <CardContent className="p-8">
-              <h3 className="text-2xl font-bold text-slate-900 mb-8 text-center">
-                Distribusi Keahlian Tim
-              </h3>
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                {specializations.map((spec, index) => (
-                  <div key={index} className="text-center">
-                    <div className="w-12 h-12 bg-red-100 rounded-lg flex items-center justify-center mx-auto mb-3">
-                      <spec.icon className="h-6 w-6 text-red-600" />
-                    </div>
-                    <h4 className="font-semibold text-slate-900 mb-2">{spec.area}</h4>
-                    <div className="text-sm text-slate-600 space-y-1">
-                      <div>{spec.experts} Ahli</div>
-                      <div>{spec.cases} Kasus Ditangani</div>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </CardContent>
-          </Card>
-        </motion.div>
-
-        {/* Team Development */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.5 }}
-          viewport={{ once: true }}
-        >
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-            <Card className="border-0 shadow-lg">
-              <CardContent className="p-8">
-                <h3 className="text-xl font-bold text-slate-900 mb-4">
-                  Pengembangan Berkelanjutan
-                </h3>
-                <div className="space-y-4">
-                  <div className="flex items-center space-x-3">
-                    <div className="w-2 h-2 bg-red-600 rounded-full"></div>
-                    <span className="text-slate-600">Pelatihan rutin setiap bulan</span>
-                  </div>
-                  <div className="flex items-center space-x-3">
-                    <div className="w-2 h-2 bg-red-600 rounded-full"></div>
-                    <span className="text-slate-600">Sertifikasi internasional berkelanjutan</span>
-                  </div>
-                  <div className="flex items-center space-x-3">
-                    <div className="w-2 h-2 bg-red-600 rounded-full"></div>
-                    <span className="text-slate-600">Partisipasi dalam konferensi hukum</span>
-                  </div>
-                  <div className="flex items-center space-x-3">
-                    <div className="w-2 h-2 bg-red-600 rounded-full"></div>
-                    <span className="text-slate-600">Penelitian dan publikasi akademik</span>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-
-            <Card className="border-0 shadow-lg">
-              <CardContent className="p-8">
-                <h3 className="text-xl font-bold text-slate-900 mb-4">
-                  Kolaborasi & Mentoring
-                </h3>
-                <div className="space-y-4">
-                  <div className="flex items-center space-x-3">
-                    <div className="w-2 h-2 bg-green-600 rounded-full"></div>
-                    <span className="text-slate-600">Program mentoring junior-senior</span>
-                  </div>
-                  <div className="flex items-center space-x-3">
-                    <div className="w-2 h-2 bg-green-600 rounded-full"></div>
-                    <span className="text-slate-600">Tim multidisiplin untuk kasus kompleks</span>
-                  </div>
-                  <div className="flex items-center space-x-3">
-                    <div className="w-2 h-2 bg-green-600 rounded-full"></div>
-                    <span className="text-slate-600">Knowledge sharing session mingguan</span>
-                  </div>
-                  <div className="flex items-center space-x-3">
-                    <div className="w-2 h-2 bg-green-600 rounded-full"></div>
-                    <span className="text-slate-600">Kemitraan dengan firma internasional</span>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-          </div>
-        </motion.div>
       </div>
     </section>
   );

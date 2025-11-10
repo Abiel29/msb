@@ -6,7 +6,6 @@ import {
   Shield, 
   Heart, 
   Star, 
-  Users, 
   Lightbulb, 
   Scale,
   Clock,
@@ -38,12 +37,6 @@ const values = [
     title: 'Empati',
     description: 'Kami memahami bahwa setiap klien memiliki situasi unik dan membutuhkan pendekatan yang personal dan sensitif.',
     color: 'bg-red-500'
-  },
-  {
-    icon: Users,
-    title: 'Kolaborasi',
-    description: 'Kami percaya pada kekuatan kerja tim dan kolaborasi untuk mencapai hasil terbaik bagi klien.',
-    color: 'bg-purple-500'
   },
   {
     icon: Lightbulb,
@@ -124,7 +117,7 @@ export default function FirmValues() {
             <h3 className="text-2xl font-bold text-center text-slate-900 mb-8">
               Nilai-Nilai dalam Tindakan
             </h3>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               <div className="text-center">
                 <div className="w-20 h-20 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
                   <Shield className="h-10 w-10 text-red-600" />
@@ -147,17 +140,6 @@ export default function FirmValues() {
                   Kami aktif dalam program pro bono dan kegiatan sosial untuk membantu masyarakat
                 </p>
               </div>
-              <div className="text-center">
-                <div className="w-20 h-20 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Star className="h-10 w-10 text-purple-600" />
-                </div>
-                <h4 className="text-lg font-semibold text-slate-900 mb-2">
-                  Pengembangan Berkelanjutan
-                </h4>
-                <p className="text-slate-600 text-sm">
-                  Kami terus mengembangkan keahlian dan pengetahuan untuk memberikan layanan terbaik
-                </p>
-              </div>
             </div>
           </div>
         </motion.div>
@@ -172,12 +154,11 @@ export default function FirmValues() {
         >
           <div className="max-w-4xl mx-auto">
             <blockquote className="text-2xl md:text-3xl font-light text-slate-700 italic leading-relaxed">
-              "Nilai-nilai kami bukan hanya kata-kata di dinding, tetapi prinsip hidup yang kami terapkan 
-              dalam setiap interaksi dengan klien dan masyarakat."
+              "Kami hadir untuk menjadi mitra strategis dalam setiap kebutuhan hukum, dengan pendekatan yang mengutamakan integritas, ketepatan, dan hasil yang terbaik."
             </blockquote>
             <div className="mt-6">
-              <div className="font-semibold text-slate-900">Dr. Ahmad Wijaya, S.H., M.H.</div>
-              <div className="text-slate-600">Managing Partner</div>
+              <div className="font-semibold text-slate-900">Mulyadi Sinarta Batubara, S.H., M.H.</div>
+              <div className="text-slate-600">CEO of MSB & Partners</div>
             </div>
           </div>
         </motion.div>

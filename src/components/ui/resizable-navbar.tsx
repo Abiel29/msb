@@ -29,6 +29,7 @@ interface NavItemsProps {
   }[];
   className?: string;
   onItemClick?: () => void;
+  pathname?: string;
 }
 
 interface MobileNavProps {
@@ -89,7 +90,7 @@ export const NavBody = ({ children, className, visible }: NavBodyProps) => {
           ? "0 0 24px rgba(34, 42, 53, 0.06), 0 1px 1px rgba(0, 0, 0, 0.05), 0 0 0 1px rgba(34, 42, 53, 0.04), 0 0 4px rgba(34, 42, 53, 0.08), 0 16px 68px rgba(47, 48, 55, 0.05), 0 1px 0 rgba(255, 255, 255, 0.1) inset"
           : "none",
         width: visible ? "80%" : "100%",
-        y: visible ? 20 : 0,
+        y: visible ? 20 : 16,
       }}
       transition={{
         type: "spring",
@@ -118,7 +119,7 @@ export const NavBody = ({ children, className, visible }: NavBodyProps) => {
   );
 };
 
-export const NavItems = ({ items, className, onItemClick, visible }: NavItemsProps & { visible?: boolean }) => {
+export const NavItems = ({ items, className, onItemClick, visible, pathname }: NavItemsProps & { visible?: boolean }) => {
   const [hovered, setHovered] = useState<number | null>(null);
 
   return (
@@ -133,26 +134,39 @@ export const NavItems = ({ items, className, onItemClick, visible }: NavItemsPro
         className,
       )}
     >
-      {items.map((item, idx) => (
-        <a
-          onMouseEnter={() => setHovered(idx)}
-          onClick={onItemClick}
-          className={cn(
-            "relative py-2 text-neutral-600 dark:text-neutral-300 whitespace-nowrap",
-            visible ? "px-2" : "px-3"
-          )}
-          key={`link-${idx}`}
-          href={item.link}
-        >
-          {hovered === idx && (
-            <motion.div
-              layoutId="hovered"
-              className="absolute inset-0 h-full w-full rounded-full bg-gray-100 dark:bg-neutral-800"
-            />
-          )}
-          <span className="relative z-20">{item.name}</span>
-        </a>
-      ))}
+      {items.map((item, idx) => {
+        const isActive = pathname === item.link || (item.link !== '/' && pathname?.startsWith(item.link));
+        return (
+          <a
+            onMouseEnter={() => setHovered(idx)}
+            onClick={onItemClick}
+            className={cn(
+              "relative py-2 whitespace-nowrap transition-colors duration-200",
+              visible ? "px-2" : "px-3",
+              isActive 
+                ? "text-red-600 font-semibold" 
+                : "text-neutral-600 dark:text-neutral-300 hover:text-red-600"
+            )}
+            key={`link-${idx}`}
+            href={item.link}
+          >
+            {hovered === idx && !isActive && (
+              <motion.div
+                layoutId="hovered"
+                className="absolute inset-0 h-full w-full rounded-full bg-gray-100 dark:bg-neutral-800"
+              />
+            )}
+            {isActive && (
+              <motion.div
+                layoutId="active"
+                className="absolute inset-0 h-full w-full rounded-full bg-red-50 dark:bg-red-900/20"
+                transition={{ type: "spring", stiffness: 380, damping: 30 }}
+              />
+            )}
+            <span className="relative z-20">{item.name}</span>
+          </a>
+        );
+      })}
     </motion.div>
   );
 };
@@ -169,7 +183,7 @@ export const MobileNav = ({ children, className, visible }: MobileNavProps) => {
         paddingRight: visible ? "12px" : "0px",
         paddingLeft: visible ? "12px" : "0px",
         borderRadius: visible ? "4px" : "2rem",
-        y: visible ? 20 : 0,
+        y: visible ? 20 : 16,
       }}
       transition={{
         type: "spring",

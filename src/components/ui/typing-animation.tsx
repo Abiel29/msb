@@ -14,10 +14,19 @@ export default function TypingAnimation({
   duration = 2000,
   className = "",
 }: TypingAnimationProps) {
-  const [displayedText, setDisplayedText] = useState("");
-  const [currentIndex, setCurrentIndex] = useState(0);
+  const [displayedText, setDisplayedText] = useState(text);
+  const [currentIndex, setCurrentIndex] = useState(text.length);
+  const [isMounted, setIsMounted] = useState(false);
 
   useEffect(() => {
+    setIsMounted(true);
+    setDisplayedText("");
+    setCurrentIndex(0);
+  }, []);
+
+  useEffect(() => {
+    if (!isMounted) return;
+    
     if (currentIndex < text.length) {
       const timeout = setTimeout(() => {
         setDisplayedText(text.slice(0, currentIndex + 1));
@@ -26,7 +35,7 @@ export default function TypingAnimation({
 
       return () => clearTimeout(timeout);
     }
-  }, [currentIndex, text, duration]);
+  }, [currentIndex, text, duration, isMounted]);
 
   return (
     <motion.div
@@ -36,7 +45,7 @@ export default function TypingAnimation({
       transition={{ duration: 0.5 }}
     >
       {displayedText}
-      {currentIndex < text.length && (
+      {isMounted && currentIndex < text.length && (
         <motion.span
           className="inline-block w-0.5 h-6 bg-current ml-1"
           animate={{ opacity: [1, 0, 1] }}

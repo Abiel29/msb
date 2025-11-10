@@ -22,13 +22,8 @@ const navigation = [
   { name: 'Beranda', link: '/' },
   { name: 'Tentang', link: '/tentang' },
   { name: 'Layanan', link: '/layanan' },
-  { name: 'Portofolio', link: '/portofolio' },
-  { name: 'Blog', link: '/berita' },
-  { name: 'Timeline', link: '/timeline' },
+  { name: 'Managing & Partners', link: '/tim' },
   { name: 'Kontak', link: '/kontak' },
-  { name: 'Rekanan', link: '/rekanan' },
-  { name: 'Press Release', link: '/press-release' },
-  { name: 'Galeri', link: '/galeri' },
 ];
 
 const MSBLogo = ({ className }: { className?: string }) => {
@@ -44,7 +39,7 @@ const MSBLogo = ({ className }: { className?: string }) => {
       </div>
       <div className="ml-2 whitespace-nowrap">
         <div className="font-bold text-lg text-slate-900 dark:text-white">
-          MSB Law Office
+          {firmInfo.name}
         </div>
       </div>
     </Link>
@@ -67,14 +62,16 @@ export default function ResizableHeader() {
           <div className="flex items-center">
             <MSBLogo />
           </div>
-          <NavItems items={navigation} onItemClick={handleItemClick} />
+          <NavItems items={navigation} onItemClick={handleItemClick} pathname={pathname} />
           <div className="flex items-center space-x-2">
             <NavbarButton 
-              href="/kontak" 
+              href="https://drive.google.com/drive/folders/1QtoEPqDjmlEtPPvScYRts9DO8xiO6tig?usp=drive_link" 
               variant="primary"
               className="bg-red-600 hover:bg-red-700 text-white shadow-lg"
+              target="_blank"
+              rel="noopener noreferrer"
             >
-              Konsultasi Gratis
+              Portofolio
             </NavbarButton>
           </div>
         </NavBody>
@@ -118,12 +115,14 @@ export default function ResizableHeader() {
               </div>
               
               <NavbarButton 
-                href="/kontak" 
+                href="https://drive.google.com/drive/folders/1QtoEPqDjmlEtPPvScYRts9DO8xiO6tig?usp=drive_link" 
                 variant="primary"
                 className="bg-red-600 hover:bg-red-700 text-white shadow-lg w-full mt-4"
                 onClick={handleItemClick}
+                target="_blank"
+                rel="noopener noreferrer"
               >
-                Konsultasi Gratis
+                Portofolio
               </NavbarButton>
             </div>
           </MobileNavMenu>

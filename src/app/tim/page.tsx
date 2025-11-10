@@ -1,8 +1,7 @@
 import React from 'react';
 import { Metadata } from 'next';
+import ManagingPartnerHero from '@/components/team/managing-partner-hero';
 import TeamGrid from '@/components/team/team-grid';
-import TeamStats from '@/components/team/team-stats';
-import JoinTeam from '@/components/team/join-team';
 import MainLayout from '@/components/layout/main-layout';
 import Image from 'next/image';
 
@@ -10,7 +9,7 @@ import { firmInfo } from '@/lib/dummy-data';
 
 export const metadata: Metadata = {
   title: `Tim Kami - ${firmInfo.name}`,
-  description: 'Bertemu dengan tim ahli hukum berpengalaman di Hukum Prima & Associates. Pengacara profesional dengan spesialisasi di berbagai bidang hukum.',
+  description: 'Bertemu dengan tim ahli hukum berpengalaman di MSB & Partners. Pengacara profesional dengan spesialisasi di berbagai bidang hukum.',
   keywords: 'tim pengacara, ahli hukum, pengacara berpengalaman, spesialis hukum, jakarta',
 };
 
@@ -28,16 +27,15 @@ export default function TeamPage() {
             <div className="max-w-4xl mx-auto text-center">
               <h1 className="text-4xl md:text-5xl font-bold mb-6">Tim Ahli Kami</h1>
               <p className="text-xl text-slate-200 leading-relaxed">
-                Bertemu dengan tim profesional berpengalaman yang siap memberikan
+                Bertemu dengan Managing Partners dan tim profesional berpengalaman yang siap memberikan
                 solusi hukum terbaik dengan keahlian di berbagai bidang spesialisasi.
               </p>
             </div>
           </div>
         </section>
 
+        <ManagingPartnerHero />
         <TeamGrid />
-        <TeamStats />
-        <JoinTeam />
       </div>
     </MainLayout>
   );

@@ -2,6 +2,7 @@
 
 import React from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
@@ -60,34 +61,48 @@ export default function ServicesPreview() {
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 viewport={{ once: true }}
               >
-                <Card className="h-full hover:shadow-lg transition-all duration-300 border-0 shadow-md group cursor-pointer">
+                <Card className="h-full hover:shadow-lg transition-all duration-300 border-0 shadow-md group cursor-pointer overflow-hidden">
                   <Link href={`/layanan/${service.slug}`}>
-                    <CardContent className="p-8">
+                    <CardContent className="p-0">
                       <div className="flex flex-col h-full">
-                        {/* Icon and Badge */}
-                        <div className="flex items-start justify-between mb-4">
-                          <div className="w-12 h-12 bg-red-100 rounded-lg flex items-center justify-center group-hover:bg-red-600 transition-colors duration-300">
-                            <IconComponent className="h-6 w-6 text-red-600 group-hover:text-white transition-colors duration-300" />
+                        {/* Image */}
+                        <div className="relative h-48 w-full overflow-hidden">
+                          <Image
+                            src={service.image_url || 'https://images.unsplash.com/photo-1589829545856-d10d557cf95f?q=80&w=1600&auto=format&fit=crop'}
+                            alt={service.title}
+                            fill
+                            className="object-cover group-hover:scale-110 transition-transform duration-500"
+                          />
+                          <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
+                          
+                          {/* Icon and Badge on Image */}
+                          <div className="absolute top-4 left-4 right-4 flex items-start justify-between">
+                            <div className="w-12 h-12 bg-white/90 backdrop-blur-sm rounded-lg flex items-center justify-center group-hover:bg-red-600 transition-colors duration-300">
+                              <IconComponent className="h-6 w-6 text-red-600 group-hover:text-white transition-colors duration-300" />
+                            </div>
+                            <Badge variant="secondary" className="text-xs bg-white/90 backdrop-blur-sm">
+                              Populer
+                            </Badge>
                           </div>
-                          <Badge variant="secondary" className="text-xs">
-                            Populer
-                          </Badge>
                         </div>
 
-                        {/* Title */}
-                        <h3 className="text-xl font-semibold text-slate-900 mb-3 group-hover:text-red-600 transition-colors duration-300">
-                          {service.title}
-                        </h3>
+                        {/* Content */}
+                        <div className="p-6 flex flex-col flex-1">
+                          {/* Title */}
+                          <h3 className="text-xl font-semibold text-slate-900 mb-3 group-hover:text-red-600 transition-colors duration-300">
+                            {service.title}
+                          </h3>
 
-                        {/* Description */}
-                        <p className="text-slate-600 leading-relaxed mb-6 flex-1">
-                          {service.short_description}
-                        </p>
+                          {/* Description */}
+                          <p className="text-slate-600 leading-relaxed mb-6 flex-1 text-sm">
+                            {service.short_description}
+                          </p>
 
-                        {/* Learn More Link */}
-                        <div className="flex items-center text-red-600 font-medium group-hover:text-red-700 transition-colors duration-300">
-                          <span className="text-sm">Pelajari Lebih Lanjut</span>
-                          <ArrowRight className="h-4 w-4 ml-2 group-hover:translate-x-1 transition-transform duration-300" />
+                          {/* Learn More Link */}
+                          <div className="flex items-center text-red-600 font-medium group-hover:text-red-700 transition-colors duration-300">
+                            <span className="text-sm">Pelajari Lebih Lanjut</span>
+                            <ArrowRight className="h-4 w-4 ml-2 group-hover:translate-x-1 transition-transform duration-300" />
+                          </div>
                         </div>
                       </div>
                     </CardContent>
