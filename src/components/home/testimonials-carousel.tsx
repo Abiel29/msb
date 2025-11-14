@@ -10,7 +10,7 @@ import {
   CarouselPrevious,
 } from '@/components/ui/carousel';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
-import { Star, Quote } from 'lucide-react';
+import { FaStar, FaQuoteLeft } from 'react-icons/fa';
 import { testimonials } from '@/lib/dummy-data';
 import { motion } from 'framer-motion';
 
@@ -19,7 +19,7 @@ export default function TestimonialsCarousel() {
 
   const renderStars = (rating: number) => {
     return Array.from({ length: 5 }, (_, i) => (
-      <Star
+      <FaStar
         key={i}
         className={`h-4 w-4 ${
           i < rating ? 'text-yellow-400 fill-current' : 'text-gray-300'
@@ -69,7 +69,7 @@ export default function TestimonialsCarousel() {
                         <div className="flex flex-col h-full">
                           {/* Quote Icon */}
                           <div className="mb-4">
-                            <Quote className="h-8 w-8 text-red-600" />
+                            <FaQuoteLeft className="h-8 w-8 text-red-200" />
                           </div>
 
                           {/* Rating */}

@@ -6,23 +6,18 @@ import Image from 'next/image';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { 
-  Building2, 
-  Scale, 
-  Home, 
-  Heart, 
-  Lightbulb, 
-  Users,
-  ArrowRight 
-} from 'lucide-react';
+  FaBalanceScale,
+  FaArrowRight 
+} from 'react-icons/fa';
 import { services } from '@/lib/dummy-data';
 
 const serviceIcons = {
-  'hukum-korporasi': Building2,
-  'litigasi-arbitrase': Scale,
-  'hukum-properti': Home,
-  'hukum-keluarga': Heart,
-  'hak-kekayaan-intelektual': Lightbulb,
-  'hukum-ketenagakerjaan': Users,
+  'hukum-korporasi': FaBalanceScale,
+  'litigasi-arbitrase': FaBalanceScale,
+  'hukum-properti': FaBalanceScale,
+  'hukum-keluarga': FaBalanceScale,
+  'hak-kekayaan-intelektual': FaBalanceScale,
+  'hukum-ketenagakerjaan': FaBalanceScale,
 };
 
 export default function ServicesPreview() {
@@ -43,7 +38,7 @@ export default function ServicesPreview() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 mb-8 md:mb-12">
           {featuredServices.map((service, index) => {
-            const IconComponent = serviceIcons[service.slug as keyof typeof serviceIcons] || Building2;
+            const IconComponent = serviceIcons[service.slug as keyof typeof serviceIcons] || FaBalanceScale;
             
             return (
               <div key={service.id}>
@@ -54,7 +49,15 @@ export default function ServicesPreview() {
                         {/* Image */}
                         <div className="relative h-48 w-full overflow-hidden">
                           <Image
-                            src={service.image_url || 'https://images.unsplash.com/photo-1589829545856-d10d557cf95f?q=80&w=1600&auto=format&fit=crop'}
+                            src={
+                              service.slug === 'perizinan' 
+                                ? 'https://images.unsplash.com/photo-1603796846097-bee99e4a601f?q=80&w=1600&auto=format&fit=crop'
+                                : service.slug === 'corporate-legal-compliance'
+                                ? 'https://images.unsplash.com/photo-1423592707957-3b212afa6733?q=80&w=1600&auto=format&fit=crop'
+                                : service.slug === 'legal-review-legal-opinion'
+                                ? 'https://images.unsplash.com/photo-1603796846097-bee99e4a601f?q=80&w=1600&auto=format&fit=crop'
+                                : service.image_url || 'https://images.unsplash.com/photo-1589829545856-d10d557cf95f?q=80&w=1600&auto=format&fit=crop'
+                            }
                             alt={service.title}
                             fill
                             className="object-cover group-hover:scale-110 transition-transform duration-500"
@@ -87,7 +90,7 @@ export default function ServicesPreview() {
                           {/* Learn More Link */}
                           <div className="flex items-center text-red-600 font-medium group-hover:text-red-700 transition-colors duration-300">
                             <span className="text-sm">Pelajari Lebih Lanjut</span>
-                            <ArrowRight className="h-4 w-4 ml-2 group-hover:translate-x-1 transition-transform duration-300" />
+                            <FaArrowRight className="h-4 w-4 ml-2 group-hover:translate-x-1 transition-transform duration-300" />
                           </div>
                         </div>
                       </div>

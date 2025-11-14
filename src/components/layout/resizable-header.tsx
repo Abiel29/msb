@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
-import { Phone, Mail } from 'lucide-react';
+import { FaPhone, FaEnvelope } from 'react-icons/fa';
 import { cn } from '@/lib/utils';
 import { firmInfo } from '@/lib/dummy-data';
 import {
@@ -29,7 +29,7 @@ const navigation = [
 const MSBLogo = ({ className }: { className?: string }) => {
   return (
     <Link href="/" className={cn("relative z-20 mr-8 flex items-center space-x-3 px-2 py-1", className)}>
-      <div className="relative w-8 h-8 flex-shrink-0">
+      <div className="relative w-12 h-12 flex-shrink-0">
         <Image 
           src={firmInfo.logo_url || '/msb.png'} 
           alt={firmInfo.name} 
@@ -105,11 +105,11 @@ export default function ResizableHeader() {
               {/* Contact Info in Mobile */}
               <div className="pt-4 space-y-3 text-sm text-slate-600 border-t">
                 <div className="flex items-center space-x-2">
-                  <Phone className="h-4 w-4 text-red-600" />
+                  <FaPhone className="h-4 w-4 text-red-600" />
                   <span>{firmInfo.phone}</span>
                 </div>
                 <div className="flex items-center space-x-2">
-                  <Mail className="h-4 w-4 text-red-600" />
+                  <FaEnvelope className="h-4 w-4 text-red-600" />
                   <span>{firmInfo.email}</span>
                 </div>
               </div>

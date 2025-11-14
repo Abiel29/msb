@@ -3,7 +3,7 @@
 import React from 'react';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
-import { MessageCircle, Mail } from 'lucide-react';
+import { FaWhatsapp, FaEnvelope } from 'react-icons/fa';
 import { firmInfo } from '@/lib/dummy-data';
 
 export default function FloatingSocials() {
@@ -13,14 +13,14 @@ export default function FloatingSocials() {
     {
       label: 'WhatsApp',
       href: waNumber ? `https://wa.me/${waNumber}` : 'https://wa.me/6281272519788',
-      icon: MessageCircle,
+      icon: FaWhatsapp,
       color: 'text-green-400',
       hover: 'hover:bg-green-500/20',
     },
     {
       label: 'Email',
       href: 'mailto:corporate.legal3@panusa-indo.com',
-      icon: Mail,
+      icon: FaEnvelope,
       color: 'text-blue-400',
       hover: 'hover:bg-blue-500/20',
     },

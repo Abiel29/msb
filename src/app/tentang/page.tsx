@@ -26,7 +26,9 @@ export default function AboutPage() {
           <div className="relative container mx-auto px-4">
             <div className="max-w-4xl mx-auto text-center">
               <h1 className="text-4xl md:text-5xl font-bold mb-6">Tentang Kami</h1>
-              <p className="text-xl text-slate-200 leading-relaxed">MSB & Partners adalah firma hukum yang berkomitmen untuk memberikan layanan hukum yang profesional, terpercaya, dan solutif bagi klien individu maupun korporasi. Kami hadir untuk menjadi mitra strategis dalam setiap kebutuhan hukum.</p>
+              <p className="text-xl text-slate-200 leading-relaxed">
+                MSB & Partners adalah firma hukum yang berkomitmen untuk memberikan layanan hukum yang profesional, terpercaya, dan solutif bagi klien individu maupun korporasi. Kami hadir untuk menjadi mitra strategis dalam setiap kebutuhan hukum, dengan pendekatan yang mengutamakan integritas, ketepatan, dan hasil yang terbaik.
+              </p>
             </div>
           </div>
         </section>
