@@ -1,6 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
-import { Phone, Mail, MapPin, Clock, Linkedin, Instagram, Facebook } from 'lucide-react';
+import { FaPhone, FaEnvelope, FaMapMarkerAlt, FaClock, FaLinkedin, FaInstagram, FaFacebook } from 'react-icons/fa';
 import { firmInfo, services } from '@/lib/dummy-data';
 
 export default function Footer() {
@@ -29,21 +29,21 @@ export default function Footer() {
                 className="text-slate-400 hover:text-white transition-colors duration-200"
                 aria-label="LinkedIn"
               >
-                <Linkedin className="h-5 w-5" />
+                <FaLinkedin className="h-5 w-5" />
               </Link>
               <Link 
                 href="#" 
                 className="text-slate-400 hover:text-white transition-colors duration-200"
                 aria-label="Instagram"
               >
-                <Instagram className="h-5 w-5" />
+                <FaInstagram className="h-5 w-5" />
               </Link>
               <Link 
                 href="#" 
                 className="text-slate-400 hover:text-white transition-colors duration-200"
                 aria-label="Facebook"
               >
-                <Facebook className="h-5 w-5" />
+                <FaFacebook className="h-5 w-5" />
               </Link>
             </div>
           </div>
@@ -117,25 +117,25 @@ export default function Footer() {
             <h3 className="font-semibold text-lg">Kontak Kami</h3>
             <div className="space-y-3">
               <div className="flex items-start space-x-3">
-                <MapPin className="h-5 w-5 text-red-400 mt-0.5 flex-shrink-0" />
+                <FaMapMarkerAlt className="h-5 w-5 text-red-400 mt-0.5 flex-shrink-0" />
                 <p className="text-slate-300 text-sm leading-relaxed">
                   {firmInfo.address}
                 </p>
               </div>
               <div className="flex items-center space-x-3">
-                <Phone className="h-5 w-5 text-red-400 flex-shrink-0" />
+                <FaPhone className="h-5 w-5 text-red-400 flex-shrink-0" />
                 <p className="text-slate-300 text-sm">
                   {firmInfo.phone}
                 </p>
               </div>
               <div className="flex items-center space-x-3">
-                <Mail className="h-5 w-5 text-red-400 flex-shrink-0" />
+                <FaEnvelope className="h-5 w-5 text-red-400 flex-shrink-0" />
                 <p className="text-slate-300 text-sm">
                   {firmInfo.email}
                 </p>
               </div>
               <div className="flex items-start space-x-3">
-                <Clock className="h-5 w-5 text-red-400 mt-0.5 flex-shrink-0" />
+                <FaClock className="h-5 w-5 text-red-400 mt-0.5 flex-shrink-0" />
                 <p className="text-slate-300 text-sm leading-relaxed">
                   {firmInfo.operation_hours}
                 </p>

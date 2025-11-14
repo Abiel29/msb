@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import NextImage from 'next/image';
 
-import { Star, Quote } from 'lucide-react';
+import { FaStar, FaQuoteLeft } from 'react-icons/fa';
 import { firmInfo, testimonials } from '@/lib/dummy-data';
 import { motion } from 'framer-motion';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
@@ -31,7 +31,7 @@ export default function HeroSection() {
   
   const renderStars = (rating: number) =>
     Array.from({ length: 5 }, (_, i) => (
-      <Star
+      <FaStar
         key={i}
         className={`h-4 w-4 ${i < rating ? 'text-yellow-400 fill-current' : 'text-white/30'}`}
       />
@@ -64,35 +64,34 @@ export default function HeroSection() {
   }, [api, featuredTestimonials.length]);
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Background image */}
-      <div className="absolute inset-0">
+    <section className="relative min-h-screen flex items-center overflow-hidden">
+      {/* Background Image */}
+      <div className="absolute inset-0 z-0">
         <NextImage
-          src="https://images.unsplash.com/photo-1555374018-13a8994ab246?q=80&w=1920&auto=format&fit=crop"
-          alt="Hero background"
+          src="/img/MSB.jpeg"
+          alt="MSB Law Office Background"
           fill
           className="object-cover"
           priority
         />
+        <div className="absolute inset-0 bg-black/60" />
       </div>
-      <div className="absolute inset-0 bg-black/60" />
-      <GridPattern className="absolute inset-0 opacity-10" />
-      <Particles count={30} className="opacity-20" />
-
-      {/* Content */}
-      <div className="relative z-10 container mx-auto px-4 py-20">
-        <div className="max-w-4xl mx-auto text-center">
+      <div className="container mx-auto px-4 py-20 relative z-10">
+        <div className="grid grid-cols-1 gap-8 lg:gap-12 items-center">
+          {/* Left Side - Text Content */}
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, x: -50 }}
+            animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
-            className="space-y-6"
+            className="relative space-y-6 lg:pr-8"
           >
-            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight text-white">
+            <div className="absolute -left-4 top-0 w-1 h-32 bg-gradient-to-b from-amber-500 to-amber-600" />
+            
+            <h1 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold leading-tight text-white">
               <TypingAnimation 
                 text="Mitra Hukum Profesional untuk"
                 duration={1500}
-                className="inline"
+                className="inline text-amber-600"
               />{' '}
               {isMounted ? (
                 <motion.span
@@ -100,23 +99,31 @@ export default function HeroSection() {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: isVisible ? 1 : 0, y: isVisible ? 0 : -20 }}
                   transition={{ duration: 0.3 }}
-                  className="text-red-400 font-bold"
+                  className="text-red-600 font-bold"
                 >
                   {rotatingWords[currentWordIndex]}
                 </motion.span>
               ) : (
-                <span className="text-red-400 font-bold">
+                <span className="text-red-600 font-bold">
                   {rotatingWords[0]}
                 </span>
               )}{' '}
-              Anda
+              <span className="text-white">Anda</span>
             </h1>
-            <p className="text-base md:text-lg text-white/80 leading-relaxed max-w-2xl mx-auto">
-              Solusi hukum terpercaya dengan pengalaman lebih dari 20 tahun
-            </p>
+
+            <div className="flex items-center space-x-4 pt-4">
+              <div className="h-px flex-1 bg-gradient-to-r from-amber-500 to-transparent" />
+              <div className="w-2 h-2 rounded-full bg-amber-500" />
+            </div>
           </motion.div>
+
+          {/* Right Side - Image removed as requested */}
         </div>
       </div>
+
+      {/* Decorative Background Elements */}
+      <GridPattern className="absolute inset-0 opacity-5" />
+      <Particles count={20} className="opacity-10" />
 
       {/* Scroll indicator */}
       <motion.div
@@ -125,8 +132,8 @@ export default function HeroSection() {
         transition={{ duration: 1, delay: 1 }}
         className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
       >
-        <div className="w-6 h-10 border-2 border-white/50 rounded-full flex justify-center">
-          <div className="w-1 h-3 bg-white/50 rounded-full mt-2 animate-bounce"></div>
+        <div className="w-6 h-10 border-2 border-amber-500/50 rounded-full flex justify-center">
+          <div className="w-1 h-3 bg-amber-500 rounded-full mt-2 animate-bounce"></div>
         </div>
       </motion.div>
     </section>

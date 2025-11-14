@@ -4,20 +4,20 @@ import React from 'react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { 
-  Award, 
-  Clock, 
-  Heart, 
-  Shield, 
-  Users, 
-  Zap 
-} from 'lucide-react';
+  FaAward, 
+  FaClock, 
+  FaUserCheck, 
+  FaShieldAlt, 
+  FaUsers, 
+  FaLaptopCode 
+} from 'react-icons/fa';
 import { motion } from 'framer-motion';
 import { firmInfo } from '@/lib/dummy-data';
 import NumberTicker from '@/components/ui/number-ticker';
 
 const keyPoints = [
   {
-    icon: Award,
+    icon: FaAward,
     title: 'Pengalaman Lebih dari 20 Tahun',
     description: 'Tim ahli dengan track record yang terbukti dalam menangani berbagai kasus hukum kompleks.',
     badge: 'Berpengalaman',
@@ -25,13 +25,13 @@ const keyPoints = [
     suffix: '+'
   },
   {
-    icon: Heart,
+    icon: FaUserCheck,
     title: 'Pendekatan Personalisasi',
     description: 'Setiap klien mendapat perhatian khusus dengan solusi yang disesuaikan dengan kebutuhan spesifik.',
     badge: 'Personal'
   },
   {
-    icon: Shield,
+    icon: FaShieldAlt,
     title: 'Keberhasilan Terbukti',
     description: 'Tingkat keberhasilan 95% dalam menyelesaikan kasus dengan hasil yang memuaskan klien.',
     badge: 'Terpercaya',
@@ -39,19 +39,19 @@ const keyPoints = [
     suffix: '%'
   },
   {
-    icon: Clock,
+    icon: FaClock,
     title: 'Respons Cepat',
     description: 'Konsultasi 24/7 dan respons maksimal 2 jam untuk urusan mendesak.',
     badge: 'Responsif'
   },
   {
-    icon: Users,
+    icon: FaUsers,
     title: 'Tim Multidisiplin',
     description: 'Kolaborasi ahli dari berbagai bidang hukum untuk solusi komprehensif.',
     badge: 'Komprehensif'
   },
   {
-    icon: Zap,
+    icon: FaLaptopCode,
     title: 'Teknologi Modern',
     description: 'Menggunakan teknologi terkini untuk efisiensi dan transparansi proses hukum.',
     badge: 'Inovatif'
@@ -60,8 +60,8 @@ const keyPoints = [
 
 export default function KeySellingPoints() {
   return (
-    <section className="py-20 bg-slate-50">
-      <div className="container mx-auto px-4">
+    <section className="py-20 bg-white relative overflow-hidden">
+      <div className="container mx-auto px-4 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -90,13 +90,9 @@ export default function KeySellingPoints() {
                 <CardContent className="p-5 md:p-6 lg:p-8">
                   <div className="flex items-start space-x-3 md:space-x-4">
                     <div className="flex-shrink-0">
-                      <motion.div 
-                        className="w-12 h-12 bg-red-100 rounded-lg flex items-center justify-center group-hover:bg-red-200 transition-colors duration-300"
-                        whileHover={{ rotate: 360 }}
-                        transition={{ duration: 0.5 }}
-                      >
+                      <div className="w-12 h-12 bg-red-100 rounded-lg flex items-center justify-center group-hover:bg-red-200 transition-colors duration-300">
                         <point.icon className="h-6 w-6 text-red-600" />
-                      </motion.div>
+                      </div>
                     </div>
                     <div className="flex-1">
                       <div className="flex items-center space-x-2 mb-3">

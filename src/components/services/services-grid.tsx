@@ -4,68 +4,25 @@ import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { Card, CardContent } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { 
-  Building2, 
-  Scale, 
-  Home, 
-  Heart, 
-  Lightbulb, 
-  Users,
-  ArrowRight,
-  CheckCircle
+  Scale,
+  ArrowRight
 } from 'lucide-react';
+import { FaBalanceScale } from 'react-icons/fa';
 import { services } from '@/lib/dummy-data';
 import { motion } from 'framer-motion';
 
 const serviceIcons = {
-  'hukum-korporasi': Building2,
+  'hukum-korporasi': Scale,
   'litigasi-arbitrase': Scale,
-  'hukum-properti': Home,
-  'hukum-keluarga': Heart,
-  'hak-kekayaan-intelektual': Lightbulb,
-  'hukum-ketenagakerjaan': Users,
+  'hukum-properti': Scale,
+  'hukum-keluarga': Scale,
+  'hak-kekayaan-intelektual': Scale,
+  'hukum-ketenagakerjaan': Scale,
 };
 
-const serviceFeatures = {
-  'hukum-korporasi': [
-    'Pendirian Perusahaan',
-    'Merger & Akuisisi',
-    'Corporate Governance',
-    'Compliance Review'
-  ],
-  'litigasi-arbitrase': [
-    'Litigasi Perdata',
-    'Arbitrase Komersial',
-    'Mediasi Sengketa',
-    'Eksekusi Putusan'
-  ],
-  'hukum-properti': [
-    'Due Diligence Properti',
-    'Kontrak Jual Beli',
-    'Sertifikasi Tanah',
-    'Sengketa Properti'
-  ],
-  'hukum-keluarga': [
-    'Perceraian',
-    'Hak Asuh Anak',
-    'Pembagian Harta',
-    'Perencanaan Waris'
-  ],
-  'hak-kekayaan-intelektual': [
-    'Pendaftaran Merek',
-    'Perlindungan Paten',
-    'Hak Cipta',
-    'Lisensi IP'
-  ],
-  'hukum-ketenagakerjaan': [
-    'Kontrak Kerja',
-    'PHK & Pesangon',
-    'Sengketa Industrial',
-    'Compliance Ketenagakerjaan'
-  ]
-};
+//
 
 export default function ServicesGrid() {
   return (
@@ -78,6 +35,17 @@ export default function ServicesGrid() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
+          <motion.div
+            initial={{ scale: 0.9, opacity: 0 }}
+            whileInView={{ scale: 1, opacity: 1 }}
+            transition={{ duration: 0.5 }}
+            viewport={{ once: true }}
+            className="inline-block mb-4"
+          >
+            <div className="w-16 h-16 bg-gradient-to-br from-red-600 to-red-700 rounded-2xl flex items-center justify-center mx-auto shadow-lg">
+              <FaBalanceScale className="h-8 w-8 text-white" />
+            </div>
+          </motion.div>
           <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
             Keahlian Hukum Komprehensif
           </h2>
@@ -89,8 +57,7 @@ export default function ServicesGrid() {
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           {services.map((service, index) => {
-            const IconComponent = serviceIcons[service.slug as keyof typeof serviceIcons] || Building2;
-            const features = serviceFeatures[service.slug as keyof typeof serviceFeatures] || [];
+            const IconComponent = serviceIcons[service.slug as keyof typeof serviceIcons] || Scale;
             
             return (
               <motion.div
@@ -100,18 +67,26 @@ export default function ServicesGrid() {
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 viewport={{ once: true }}
               >
-                <Card className="h-full border-0 shadow-lg hover:shadow-xl transition-all duration-300 group overflow-hidden">
+                <Card className="h-full border-0 shadow-lg hover:shadow-xl transition-all duration-300 group overflow-hidden rounded-2xl">
                   <CardContent className="p-0">
-                    <div className="grid grid-cols-1 md:grid-cols-5 gap-0">
+                    <div className="grid grid-cols-1 gap-0 md:flex md:flex-row">
                       {/* Image Section */}
-                      <div className="relative h-64 md:h-auto md:col-span-2 overflow-hidden">
+                      <div className="relative h-56 md:h-auto md:min-h-[240px] md:w-2/5 overflow-hidden rounded-xl">
                         <Image
-                          src={service.image_url || 'https://images.unsplash.com/photo-1589829545856-d10d557cf95f?q=80&w=1600&auto=format&fit=crop'}
+                          src={
+                            service.slug === 'perizinan' 
+                              ? 'https://images.unsplash.com/photo-1603796846097-bee99e4a601f?q=80&w=1600&auto=format&fit=crop'
+                              : service.slug === 'corporate-legal-compliance'
+                              ? 'https://images.unsplash.com/photo-1423592707957-3b212afa6733?q=80&w=1600&auto=format&fit=crop'
+                              : service.slug === 'legal-review-legal-opinion'
+                              ? 'https://images.unsplash.com/photo-1603796846097-bee99e4a601f?q=80&w=1600&auto=format&fit=crop'
+                              : service.image_url || 'https://images.unsplash.com/photo-1589829545856-d10d557cf95f?q=80&w=1600&auto=format&fit=crop'
+                          }
                           alt={service.title}
                           fill
                           className="object-cover group-hover:scale-110 transition-transform duration-500"
                         />
-                        <div className="absolute inset-0 bg-gradient-to-t md:bg-gradient-to-r from-black/60 via-black/30 to-transparent" />
+                        {/* removed dark overlay to make photo cleaner */}
                         
                         {/* Icon on Image */}
                         <div className="absolute top-4 left-4">
@@ -129,50 +104,25 @@ export default function ServicesGrid() {
                       </div>
 
                       {/* Content Section */}
-                      <div className="md:col-span-3 p-6 lg:p-8 flex flex-col">
-                        <div className="mb-4">
-                          <h3 className="text-2xl font-bold text-slate-900 group-hover:text-red-600 transition-colors duration-300 mb-2">
-                            {service.title}
-                          </h3>
-                          <p className="text-slate-600 leading-relaxed text-sm">
-                            {service.short_description}
-                          </p>
-                        </div>
+                      <div className="p-6 md:p-8 flex flex-col flex-1 min-h-[200px] md:w-3/5">
+                        {/* Title */}
+                        <h3 className="text-xl md:text-2xl font-semibold text-slate-900 mb-3 md:mb-4 group-hover:text-red-600 transition-colors duration-300">
+                          {service.title}
+                        </h3>
 
-                        {/* Service Features */}
-                        <div className="mb-6 flex-1">
-                          <h4 className="font-semibold text-slate-900 mb-3 text-sm">Cakupan Layanan:</h4>
-                          <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
-                            {features.map((feature, idx) => (
-                              <div key={idx} className="flex items-center space-x-2">
-                                <CheckCircle className="h-4 w-4 text-green-500 flex-shrink-0" />
-                                <span className="text-sm text-slate-600">{feature}</span>
-                              </div>
-                            ))}
-                          </div>
-                        </div>
+                        {/* Description */}
+                        <p className="text-slate-600 leading-relaxed mb-6 md:mb-8 flex-1 text-sm md:text-base">
+                          {service.short_description}
+                        </p>
 
-                        {/* Action Buttons */}
-                        <div className="flex flex-col sm:flex-row gap-3">
-                          <Button 
-                            asChild 
-                            className="flex-1 bg-red-700 hover:bg-red-800"
-                          >
-                            <Link href={`/layanan/${service.slug}`} className="flex items-center justify-center space-x-2">
-                              <span>Pelajari Detail</span>
-                              <ArrowRight className="h-4 w-4" />
-                            </Link>
-                          </Button>
-                          <Button 
-                            asChild 
-                            variant="outline"
-                            className="flex-1 hover:bg-red-50 hover:border-red-300"
-                          >
-                            <Link href="/kontak">
-                              Konsultasi
-                            </Link>
-                          </Button>
-                        </div>
+                        {/* Learn More Link */}
+                        <Link
+                          href={`/layanan/${service.slug}`}
+                          className="flex items-center text-red-600 font-medium group-hover:text-red-700 transition-colors duration-300 text-base"
+                        >
+                          <span className="text-sm">Pelajari Lebih Lanjut</span>
+                          <ArrowRight className="h-4 w-4 ml-2 group-hover:translate-x-1 transition-transform duration-300" />
+                        </Link>
                       </div>
                     </div>
                   </CardContent>

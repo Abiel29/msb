@@ -3,7 +3,7 @@
 import React from 'react';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
-import { Phone, MessageCircle, Mail, Clock } from 'lucide-react';
+import { FaPhone, FaWhatsapp, FaEnvelope, FaClock } from 'react-icons/fa';
 import { firmInfo } from '@/lib/dummy-data';
 import { motion } from 'framer-motion';
 
@@ -59,7 +59,7 @@ export default function FinalCTA() {
                 className="flex items-center space-x-4 p-4 bg-white/10 rounded-lg hover:bg-white/20 transition-colors duration-300 group"
               >
                 <div className="w-12 h-12 bg-green-500 rounded-lg flex items-center justify-center">
-                  <MessageCircle className="h-6 w-6 text-white" />
+                  <FaWhatsapp className="h-6 w-6 text-white" />
                 </div>
                 <div>
                   <div className="font-semibold text-white">WhatsApp</div>
@@ -73,7 +73,7 @@ export default function FinalCTA() {
                 className="flex items-center space-x-4 p-4 bg-white/10 rounded-lg hover:bg-white/20 transition-colors duration-300 group"
               >
                 <div className="w-12 h-12 bg-red-700 rounded-lg flex items-center justify-center">
-                  <Phone className="h-6 w-6 text-white" />
+                  <FaPhone className="h-6 w-6 text-white" />
                 </div>
                 <div>
                   <div className="font-semibold text-white">Telepon</div>
@@ -87,7 +87,7 @@ export default function FinalCTA() {
                 className="flex items-center space-x-4 p-4 bg-white/10 rounded-lg hover:bg-white/20 transition-colors duration-300 group"
               >
                 <div className="w-12 h-12 bg-purple-500 rounded-lg flex items-center justify-center">
-                  <Mail className="h-6 w-6 text-white" />
+                  <FaEnvelope className="h-6 w-6 text-white" />
                 </div>
                 <div>
                   <div className="font-semibold text-white">Email</div>
@@ -98,7 +98,7 @@ export default function FinalCTA() {
               {/* Office Hours */}
               <div className="flex items-center space-x-4 p-4 bg-white/10 rounded-lg">
                 <div className="w-12 h-12 bg-orange-500 rounded-lg flex items-center justify-center">
-                  <Clock className="h-6 w-6 text-white" />
+                  <FaClock className="h-6 w-6 text-white" />
                 </div>
                 <div>
                   <div className="font-semibold text-white">Jam Operasional</div>

@@ -77,7 +77,7 @@ export default function ContactMap() {
                       className="bg-red-700 hover:bg-red-800 shadow-lg"
                     >
                       <a
-                        href="https://share.google/zfvdGfDmpj1LqlTY6"
+                        href="https://maps.app.goo.gl/Ye6YTkAacjMkXSad6"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="flex items-center space-x-2"

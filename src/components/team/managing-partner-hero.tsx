@@ -3,7 +3,7 @@
 import React from 'react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { Mail, Linkedin } from 'lucide-react';
+import { FaEnvelope, FaLinkedin } from 'react-icons/fa';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 import { teamMembers } from '@/lib/dummy-data';
@@ -39,7 +39,7 @@ export default function ManagingPartnerHero() {
                 <div className="lg:col-span-2 p-8 lg:p-12">
                   <div className="mb-6">
                     <Badge className="mb-3 bg-red-600 hover:bg-red-700">
-                      CEO &amp; Managing Partner
+                      {managingPartner.position}
                     </Badge>
                     <h2 className="text-3xl lg:text-4xl font-bold text-slate-900 mb-2">
                       {managingPartner.name}
@@ -61,7 +61,7 @@ export default function ManagingPartnerHero() {
                         href={`mailto:${managingPartner.email}`}
                         className="flex items-center space-x-2 text-slate-600 hover:text-red-600 transition-colors"
                       >
-                        <Mail className="h-5 w-5" />
+                        <FaEnvelope className="h-5 w-5" />
                         <span className="text-sm">{managingPartner.email}</span>
                       </a>
                     )}
@@ -72,7 +72,7 @@ export default function ManagingPartnerHero() {
                         rel="noopener noreferrer"
                         className="flex items-center space-x-2 text-slate-600 hover:text-red-600 transition-colors"
                       >
-                        <Linkedin className="h-5 w-5" />
+                        <FaLinkedin className="h-5 w-5" />
                         <span className="text-sm">LinkedIn</span>
                       </a>
                     )}

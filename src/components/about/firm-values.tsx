@@ -3,58 +3,59 @@
 import React from 'react';
 import { Card, CardContent } from '@/components/ui/card';
 import { 
-  Shield, 
-  Heart, 
-  Star, 
-  Lightbulb, 
-  Scale,
-  Clock,
-  Globe
-} from 'lucide-react';
+  FaShieldAlt, 
+  FaHandshake, 
+  FaStar, 
+  FaLightbulb, 
+  FaBalanceScale,
+  FaClock,
+  FaGlobe,
+  FaHandsHelping
+} from 'react-icons/fa';
 import { motion } from 'framer-motion';
 
 const values = [
   {
-    icon: Shield,
+    icon: FaShieldAlt,
     title: 'Integritas',
     description: 'Kami berkomitmen untuk selalu jujur, transparan, dan bertanggung jawab dalam setiap tindakan dan keputusan yang kami ambil.',
-    color: 'bg-red-700'
+    color: 'bg-red-600'
   },
   {
-    icon: Scale,
+    icon: FaBalanceScale,
     title: 'Keadilan',
     description: 'Kami percaya bahwa setiap orang berhak mendapatkan perlakuan yang adil dan representasi hukum yang berkualitas.',
-    color: 'bg-green-500'
+    color: 'bg-amber-500'
   },
   {
-    icon: Star,
+    icon: FaStar,
     title: 'Keunggulan',
     description: 'Kami terus berusaha memberikan layanan terbaik dengan standar kualitas tertinggi di industri hukum.',
-    color: 'bg-yellow-500'
+    color: 'bg-red-600'
   },
   {
-    icon: Heart,
+    icon: FaHandshake,
     title: 'Empati',
     description: 'Kami memahami bahwa setiap klien memiliki situasi unik dan membutuhkan pendekatan yang personal dan sensitif.',
-    color: 'bg-red-500'
+    color: 'bg-amber-500'
   },
   {
-    icon: Lightbulb,
+    icon: FaLightbulb,
     title: 'Inovasi',
     description: 'Kami mengadopsi teknologi dan metode terbaru untuk memberikan solusi hukum yang efektif dan efisien.',
-    color: 'bg-orange-500'
+    color: 'bg-red-600'
   },
   {
-    icon: Clock,
+    icon: FaClock,
     title: 'Responsivitas',
     description: 'Kami berkomitmen untuk memberikan respons yang cepat dan tepat waktu terhadap kebutuhan klien.',
-    color: 'bg-indigo-500'
+    color: 'bg-amber-500'
   },
   {
-    icon: Globe,
+    icon: FaGlobe,
     title: 'Profesionalisme',
     description: 'Kami menjunjung tinggi standar profesional dalam setiap aspek layanan dan interaksi dengan klien.',
-    color: 'bg-teal-500'
+    color: 'bg-red-600'
   }
 ];
 
@@ -77,13 +78,43 @@ export default function FirmValues() {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {values.map((value, index) => (
+        {/* First row - 4 cards */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-6">
+          {values.slice(0, 4).map((value, index) => (
             <motion.div
               key={index}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
+              viewport={{ once: true }}
+            >
+              <Card className="h-full border-0 shadow-md hover:shadow-lg transition-all duration-300 group">
+                <CardContent className="p-6 text-center">
+                  <div className="mb-4">
+                    <div className={`w-16 h-16 ${value.color} rounded-full flex items-center justify-center mx-auto group-hover:scale-110 transition-transform duration-300`}>
+                      <value.icon className="h-8 w-8 text-white" />
+                    </div>
+                  </div>
+                  <h3 className="text-lg font-semibold text-slate-900 mb-3">
+                    {value.title}
+                  </h3>
+                  <p className="text-slate-600 text-sm leading-relaxed">
+                    {value.description}
+                  </p>
+                </CardContent>
+              </Card>
+            </motion.div>
+          ))}
+        </div>
+
+        {/* Second row - 3 cards centered */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
+          {values.slice(4, 7).map((value, index) => (
+            <motion.div
+              key={index + 4}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: (index + 4) * 0.1 }}
               viewport={{ once: true }}
             >
               <Card className="h-full border-0 shadow-md hover:shadow-lg transition-all duration-300 group">
@@ -119,8 +150,8 @@ export default function FirmValues() {
             </h3>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               <div className="text-center">
-                <div className="w-20 h-20 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Shield className="h-10 w-10 text-red-600" />
+                <div className="w-20 h-20 bg-red-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <FaShieldAlt className="h-10 w-10 text-white" />
                 </div>
                 <h4 className="text-lg font-semibold text-slate-900 mb-2">
                   Komitmen Etika
@@ -130,8 +161,8 @@ export default function FirmValues() {
                 </p>
               </div>
               <div className="text-center">
-                <div className="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Heart className="h-10 w-10 text-green-600" />
+                <div className="w-20 h-20 bg-amber-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <FaHandsHelping className="h-10 w-10 text-white" />
                 </div>
                 <h4 className="text-lg font-semibold text-slate-900 mb-2">
                   Kepedulian Sosial
@@ -154,11 +185,10 @@ export default function FirmValues() {
         >
           <div className="max-w-4xl mx-auto">
             <blockquote className="text-2xl md:text-3xl font-light text-slate-700 italic leading-relaxed">
-              "Kami hadir untuk menjadi mitra strategis dalam setiap kebutuhan hukum, dengan pendekatan yang mengutamakan integritas, ketepatan, dan hasil yang terbaik."
+              "Setiap tantangan hukum membutuhkan ketegasan strategi, kejernihan analisis, dan komitmen tanpa kompromi. Kami hadir untuk melindungi kepentingan Anda dengan dedikasi penuh dan standar profesional tertinggi."
             </blockquote>
             <div className="mt-6">
-              <div className="font-semibold text-slate-900">Mulyadi Sinarta Batubara, S.H., M.H.</div>
-              <div className="text-slate-600">CEO of MSB & Partners</div>
+              <div className="font-semibold text-slate-900">MSB and Partners</div>
             </div>
           </div>
         </motion.div>

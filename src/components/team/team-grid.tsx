@@ -4,14 +4,13 @@ import React from 'react';
 import { Card, CardContent } from '@/components/ui/card';
 import { motion } from 'framer-motion';
 import { teamMembers } from '@/lib/dummy-data';
-import { Scale, Briefcase, Award } from 'lucide-react';
+import { FaBalanceScale, FaAward } from 'react-icons/fa';
 
 export default function TeamGrid() {
-  // Get team members excluding CEO (id 1)
-  const otherMembers = teamMembers.filter(member => member.id !== 1);
+  // Get team members excluding CEO (id 1) and inactive members
+  const otherMembers = teamMembers.filter(member => member.id !== 1 && member.is_active);
 
-  // Icon rotation for visual variety
-  const icons = [Scale, Briefcase, Award];
+  // Use only balance scale icon for all cards
 
   return (
     <section className="py-20 bg-gradient-to-br from-slate-50 via-white to-red-50/30">
@@ -32,7 +31,7 @@ export default function TeamGrid() {
             className="inline-block mb-4"
           >
             <div className="w-16 h-16 bg-gradient-to-br from-red-600 to-red-700 rounded-2xl flex items-center justify-center mx-auto shadow-lg">
-              <Scale className="h-8 w-8 text-white" />
+              <FaBalanceScale className="h-8 w-8 text-white" />
             </div>
           </motion.div>
           <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
@@ -45,9 +44,9 @@ export default function TeamGrid() {
 
         {/* Team Grid */}
         <div className="max-w-6xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {otherMembers.map((member, index) => {
-              const IconComponent = icons[index % icons.length];
+          {/* First row - 3 cards */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-6">
+            {otherMembers.slice(0, 3).map((member, index) => {
               return (
                 <motion.div
                   key={member.id}
@@ -58,28 +57,17 @@ export default function TeamGrid() {
                 >
                   <Card className="border-0 shadow-md hover:shadow-xl transition-all duration-300 group overflow-hidden h-full">
                     <CardContent className="p-6 relative">
-                      {/* Decorative Background */}
-                      <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-br from-red-50 to-transparent rounded-bl-full opacity-50 group-hover:opacity-70 transition-opacity" />
+                      {/* Decorative Background - Gold */}
+                      <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-amber-400/30 to-transparent rounded-bl-full group-hover:from-amber-400/40 transition-all" />
                       
-                      {/* Content */}
-                      <div className="relative flex items-start space-x-4">
-                        <motion.div 
-                          whileHover={{ rotate: 360, scale: 1.1 }}
-                          transition={{ duration: 0.6 }}
-                          className="w-14 h-14 bg-gradient-to-br from-red-600 to-red-700 rounded-xl flex items-center justify-center flex-shrink-0 shadow-lg group-hover:shadow-xl transition-shadow"
-                        >
-                          <IconComponent className="h-7 w-7 text-white" />
-                        </motion.div>
-                        <div className="flex-1 pt-1">
-                          <h3 className="font-bold text-slate-900 text-base leading-tight group-hover:text-red-600 transition-colors duration-200">
-                            {member.name}
-                          </h3>
-                          <div className="mt-2 pt-2 border-t border-slate-100">
-                            <p className="text-xs text-slate-500 font-medium">
-                              {member.position}
-                            </p>
-                          </div>
+                      {/* Content - Centered */}
+                      <div className="relative flex flex-col items-center justify-center text-center space-y-4">
+                        <div className="w-16 h-16 bg-gradient-to-br from-red-600 to-red-700 rounded-xl flex items-center justify-center shadow-lg group-hover:shadow-xl group-hover:from-amber-500 group-hover:to-amber-600 transition-all duration-300">
+                          <FaBalanceScale className="h-8 w-8 text-white" />
                         </div>
+                        <h3 className="font-bold text-slate-900 text-base leading-tight group-hover:text-red-600 transition-colors duration-200">
+                          {member.name}
+                        </h3>
                       </div>
 
                       {/* Hover Effect Line */}
@@ -95,6 +83,47 @@ export default function TeamGrid() {
             })}
           </div>
 
+          {/* Second row - 2 cards centered */}
+          {otherMembers.length > 3 && (
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-3xl mx-auto">
+              {otherMembers.slice(3).map((member, index) => {
+                return (
+                  <motion.div
+                    key={member.id}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5, delay: (index + 3) * 0.1 }}
+                    viewport={{ once: true }}
+                  >
+                    <Card className="border-0 shadow-md hover:shadow-xl transition-all duration-300 group overflow-hidden h-full">
+                      <CardContent className="p-6 relative">
+                        {/* Decorative Background - Gold */}
+                        <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-amber-400/30 to-transparent rounded-bl-full group-hover:from-amber-400/40 transition-all" />
+                        
+                        {/* Content - Centered */}
+                        <div className="relative flex flex-col items-center justify-center text-center space-y-4">
+                          <div className="w-16 h-16 bg-gradient-to-br from-red-600 to-red-700 rounded-xl flex items-center justify-center shadow-lg group-hover:shadow-xl group-hover:from-amber-500 group-hover:to-amber-600 transition-all duration-300">
+                            <FaBalanceScale className="h-8 w-8 text-white" />
+                          </div>
+                          <h3 className="font-bold text-slate-900 text-base leading-tight group-hover:text-red-600 transition-colors duration-200">
+                            {member.name}
+                          </h3>
+                        </div>
+
+                        {/* Hover Effect Line */}
+                        <motion.div
+                          initial={{ width: 0 }}
+                          whileHover={{ width: '100%' }}
+                          className="absolute bottom-0 left-0 h-1 bg-gradient-to-r from-red-600 to-red-400"
+                        />
+                      </CardContent>
+                    </Card>
+                  </motion.div>
+                );
+              })}
+            </div>
+          )}
+
           {/* Bottom Decoration */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -104,7 +133,7 @@ export default function TeamGrid() {
             className="mt-12 text-center"
           >
             <div className="inline-flex items-center space-x-2 px-6 py-3 bg-white rounded-full shadow-md">
-              <Award className="h-5 w-5 text-red-600" />
+              <FaAward className="h-5 w-5 text-red-600" />
               <span className="text-sm font-semibold text-slate-700">
                 Profesional Bersertifikat & Berpengalaman
               </span>

@@ -4,19 +4,19 @@ import React from 'react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { 
-  Phone,
-  Mail,
-  MessageCircle,
-  Linkedin,
-  Instagram,
-  Facebook
-} from 'lucide-react';
+  FaPhone,
+  FaEnvelope,
+  FaWhatsapp,
+  FaLinkedin,
+  FaInstagram,
+  FaFacebook
+} from 'react-icons/fa';
 import { firmInfo } from '@/lib/dummy-data';
 import { motion } from 'framer-motion';
 
 const contactMethods = [
   {
-    icon: Phone,
+    icon: FaPhone,
     title: 'Telepon',
     value: firmInfo.phone,
     description: 'Tersedia 24/7 untuk konsultasi darurat',
@@ -25,7 +25,7 @@ const contactMethods = [
     type: 'contact'
   },
   {
-    icon: MessageCircle,
+    icon: FaWhatsapp,
     title: 'WhatsApp',
     value: firmInfo.whatsapp_number,
     description: 'Respons cepat dalam 5 menit',
@@ -34,7 +34,7 @@ const contactMethods = [
     type: 'contact'
   },
   {
-    icon: Mail,
+    icon: FaEnvelope,
     title: 'Email',
     value: firmInfo.email,
     description: 'Respons dalam 2 jam kerja',
@@ -52,19 +52,19 @@ const contactMethods = [
 
 const socialLinks = [
   {
-    icon: Linkedin,
+    icon: FaLinkedin,
     name: 'LinkedIn',
     url: '#',
     color: 'hover:text-red-600'
   },
   {
-    icon: Instagram,
+    icon: FaInstagram,
     name: 'Instagram',
     url: '#',
     color: 'hover:text-pink-600'
   },
   {
-    icon: Facebook,
+    icon: FaFacebook,
     name: 'Facebook',
     url: '#',
     color: 'hover:text-red-700'
