@@ -38,7 +38,7 @@ const MSBLogo = ({ className }: { className?: string }) => {
         />
       </div>
       <div className="ml-2 whitespace-nowrap">
-        <div className="font-bold text-lg text-slate-900 dark:text-white">
+        <div className="font-bold text-xl text-slate-900 dark:text-white">
           {firmInfo.name}
         </div>
       </div>
@@ -92,7 +92,7 @@ export default function ResizableHeader() {
                     key={item.name}
                     href={item.link}
                     className={cn(
-                      'text-lg font-medium transition-colors duration-200 py-2 px-4 rounded-md',
+                      'text-lg md:text-2xl font-medium transition-colors duration-200 py-2 px-4 rounded-md',
                       isActive ? 'text-red-600 bg-red-50' : 'text-slate-700 hover:text-red-600 hover:bg-gray-50'
                     )}
                     onClick={handleItemClick}

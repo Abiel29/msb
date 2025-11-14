@@ -64,20 +64,20 @@ export default function HeroSection() {
   }, [api, featuredTestimonials.length]);
 
   return (
-    <section className="relative min-h-screen flex items-center overflow-hidden">
+    <section className="relative min-h-[80vh] md:min-h-screen flex items-center overflow-hidden">
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
         <NextImage
           src="/img/MSB.jpeg"
           alt="MSB Law Office Background"
           fill
-          className="object-cover"
+          className="object-cover object-[72%_50%] md:object-center"
           priority
         />
         <div className="absolute inset-0 bg-black/60" />
       </div>
       <div className="container mx-auto px-4 py-20 relative z-10">
-        <div className="grid grid-cols-1 gap-8 lg:gap-12 items-center">
+        <div className="grid grid-cols-1 gap-8 lg:gap-12 items-center p-4">
           {/* Left Side - Text Content */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
