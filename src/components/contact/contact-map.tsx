@@ -110,20 +110,20 @@ export default function ContactMap() {
                 <h3 className="font-semibold text-slate-900 mb-3">Landmark Terdekat</h3>
                 <div className="space-y-2 text-sm text-slate-600">
                   <div className="flex justify-between">
-                    <span>Plaza Indonesia</span>
+                    <span>Bundaran Senayan</span>
                     <span>5 menit</span>
                   </div>
                   <div className="flex justify-between">
-                    <span>Grand Indonesia</span>
-                    <span>7 menit</span>
+                    <span>MRT Senayan</span>
+                    <span>2 menit</span>
                   </div>
                   <div className="flex justify-between">
-                    <span>MRT Bundaran HI</span>
+                    <span>Plaza Senayan</span>
+                    <span>5 menit</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span>Senayan City</span>
                     <span>10 menit</span>
-                  </div>
-                  <div className="flex justify-between">
-                    <span>Hotel Indonesia</span>
-                    <span>8 menit</span>
                   </div>
                 </div>
               </CardContent>
