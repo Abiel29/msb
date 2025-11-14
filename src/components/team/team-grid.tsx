@@ -68,6 +68,7 @@ export default function TeamGrid() {
                         <h3 className="font-bold text-slate-900 text-base leading-tight group-hover:text-red-600 transition-colors duration-200">
                           {member.name}
                         </h3>
+                        <p>{member.position}</p>
                       </div>
 
                       {/* Hover Effect Line */}
@@ -108,6 +109,7 @@ export default function TeamGrid() {
                           <h3 className="font-bold text-slate-900 text-base leading-tight group-hover:text-red-600 transition-colors duration-200">
                             {member.name}
                           </h3>
+                          <p>{member.position}</p>
                         </div>
 
                         {/* Hover Effect Line */}

@@ -46,7 +46,7 @@ export const teamMembers: TeamMember[] = [
   {
     id: 2,
     name: 'Rellavianita, S.H., M.Kn.',
-    position: 'Managing Partner',
+    position: 'Associate',
     specialization: 'Hukum Korporasi, Compliance',
     bio: 'Partner senior dengan keahlian dalam hukum korporasi dan kepatuhan regulasi. Berpengalaman dalam memberikan konsultasi strategis untuk perusahaan dalam berbagai aspek hukum bisnis.',
     image_url: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=300&h=300&fit=crop&crop=face',
@@ -60,7 +60,7 @@ export const teamMembers: TeamMember[] = [
   {
     id: 3,
     name: 'Muhamad Irvan Maulana, S.H., M.H.',
-    position: 'Managing Partner',
+    position: 'Associate',
     specialization: 'Litigasi, Arbitrase',
     bio: 'Spesialis litigasi dan arbitrase dengan pengalaman menangani kasus-kasus kompleks di berbagai tingkat pengadilan. Ahli dalam strategi penyelesaian sengketa yang efektif.',
     image_url: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=300&h=300&fit=crop&crop=face',
@@ -102,7 +102,7 @@ export const teamMembers: TeamMember[] = [
   {
     id: 6,
     name: 'Femmie Cynthia, S.H.',
-    position: 'Associate',
+    position: 'Junior Associate',
     specialization: 'Hukum Keluarga, Perizinan',
     bio: 'Spesialis dalam hukum keluarga dan pengurusan perizinan. Memberikan pendampingan hukum dengan pendekatan yang profesional dan empatik.',
     image_url: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=300&h=300&fit=crop&crop=face',
@@ -116,7 +116,7 @@ export const teamMembers: TeamMember[] = [
   {
     id: 7,
     name: 'Talia Kallista Haditama, S.H.',
-    position: 'Associate',
+    position: 'Junior Associate',
     specialization: 'Legal Opinion, Compliance',
     bio: 'Ahli dalam penyusunan legal opinion dan compliance audit. Membantu klien memahami risiko hukum dan memastikan kepatuhan terhadap regulasi.',
     image_url: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=300&h=300&fit=crop&crop=face',
