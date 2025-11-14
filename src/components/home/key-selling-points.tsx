@@ -131,7 +131,7 @@ export default function KeySellingPoints() {
         </div>
 
           <div className='flex justify-center mt-4'>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6 md:gap-8 w-full md:w-[70%] bg-yellow-100">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6 md:gap-8 w-full md:w-[70%]">
               {keyPointsBot.map((point, index) => (
                 <motion.div
                   key={index}
