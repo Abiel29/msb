@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
 import { MessageCircle, Phone, Mail, X } from "lucide-react";
 import { Button } from "./button";
+import { firmInfo } from "@/lib/dummy-data";
 
 interface FloatingActionButtonProps {
   position?: "bottom-right" | "bottom-left";
@@ -53,7 +54,7 @@ export default function FloatingActionButton({
     {
       icon: MessageCircle,
       label: "WhatsApp",
-      href: "https://wa.me/6281272519788",
+      href: `${`https://wa.me/${firmInfo.whatsapp_number?.replace(/[^0-9]/g, '')}?text=Halo%20saya%20ingin%20bertanya%20mengenai%20layanan%20hukum%20di%20MSB%20and%20Partners`}`,
       color: "bg-green-500 hover:bg-green-600"
     },
     {

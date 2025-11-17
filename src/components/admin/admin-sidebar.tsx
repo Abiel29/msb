@@ -11,7 +11,6 @@ import {
   Briefcase, 
   MessageSquare, 
   Star,
-  Settings,
   UserCog
 } from 'lucide-react';
 

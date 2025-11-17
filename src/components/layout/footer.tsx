@@ -2,6 +2,7 @@ import React from 'react';
 import Link from 'next/link';
 import { FaPhone, FaEnvelope, FaMapMarkerAlt, FaClock, FaLinkedin, FaInstagram, FaFacebook } from 'react-icons/fa';
 import { firmInfo, services } from '@/lib/dummy-data';
+import Image from 'next/image';
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -13,9 +14,13 @@ export default function Footer() {
           {/* Company Info */}
           <div className="space-y-4">
             <div className="flex items-center space-x-2">
-              <div className="w-8 h-8 bg-red-700 rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold text-lg">M</span>
-              </div>
+              <Image
+                src={'/msb.png'} 
+                alt={"logo MSB"}
+                width={20}
+                height={20}
+                className=""
+              />
               <div className="font-bold text-lg">
                 {firmInfo.name}
               </div>

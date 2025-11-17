@@ -45,8 +45,8 @@ export default function TeamGrid() {
         {/* Team Grid */}
         <div className="max-w-6xl mx-auto">
           {/* First row - 3 cards */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-6">
-            {otherMembers.slice(0, 3).map((member, index) => {
+          <div className="flex flex-wrap justify-center gap-6 md:gap-8">
+            {otherMembers.map((member, index) => {
               return (
                 <motion.div
                   key={member.id}
@@ -54,8 +54,9 @@ export default function TeamGrid() {
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
                   viewport={{ once: true }}
+                  className="w-full h-auto md:w-[45%] lg:w-[30%]"
                 >
-                  <Card className="border-0 shadow-md hover:shadow-xl transition-all duration-300 group overflow-hidden h-full">
+                  <Card className="py-0 border-0 shadow-md hover:shadow-xl transition-all duration-300 group overflow-hidden h-full">
                     <CardContent className="p-6 relative">
                       {/* Decorative Background - Gold */}
                       <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-amber-400/30 to-transparent rounded-bl-full group-hover:from-amber-400/40 transition-all" />
@@ -83,48 +84,6 @@ export default function TeamGrid() {
               );
             })}
           </div>
-
-          {/* Second row - 2 cards centered */}
-          {otherMembers.length > 3 && (
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-3xl mx-auto">
-              {otherMembers.slice(3).map((member, index) => {
-                return (
-                  <motion.div
-                    key={member.id}
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.5, delay: (index + 3) * 0.1 }}
-                    viewport={{ once: true }}
-                  >
-                    <Card className="border-0 shadow-md hover:shadow-xl transition-all duration-300 group overflow-hidden h-full">
-                      <CardContent className="p-6 relative">
-                        {/* Decorative Background - Gold */}
-                        <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-amber-400/30 to-transparent rounded-bl-full group-hover:from-amber-400/40 transition-all" />
-                        
-                        {/* Content - Centered */}
-                        <div className="relative flex flex-col items-center justify-center text-center space-y-4">
-                          <div className="w-16 h-16 bg-gradient-to-br from-red-600 to-red-700 rounded-xl flex items-center justify-center shadow-lg group-hover:shadow-xl group-hover:from-amber-500 group-hover:to-amber-600 transition-all duration-300">
-                            <FaBalanceScale className="h-8 w-8 text-white" />
-                          </div>
-                          <h3 className="font-bold text-slate-900 text-base leading-tight group-hover:text-red-600 transition-colors duration-200">
-                            {member.name}
-                          </h3>
-                          <p>{member.position}</p>
-                        </div>
-
-                        {/* Hover Effect Line */}
-                        <motion.div
-                          initial={{ width: 0 }}
-                          whileHover={{ width: '100%' }}
-                          className="absolute bottom-0 left-0 h-1 bg-gradient-to-r from-red-600 to-red-400"
-                        />
-                      </CardContent>
-                    </Card>
-                  </motion.div>
-                );
-              })}
-            </div>
-          )}
 
           {/* Bottom Decoration */}
           <motion.div

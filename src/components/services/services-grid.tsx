@@ -67,11 +67,11 @@ export default function ServicesGrid() {
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 viewport={{ once: true }}
               >
-                <Card className="h-full border-0 shadow-lg hover:shadow-xl transition-all duration-300 group overflow-hidden rounded-2xl">
+                <Card className="p-2 h-full border-0 shadow-lg hover:shadow-xl transition-all duration-300 group overflow-hidden rounded-2xl">
                   <CardContent className="p-0">
                     <div className="grid grid-cols-1 gap-0 md:flex md:flex-row">
                       {/* Image Section */}
-                      <div className="relative h-56 md:h-auto md:min-h-[240px] md:w-2/5 overflow-hidden rounded-xl">
+                      <div className="relative h-56 md:h-auto md:min-h-[240px] md:w-2/5 overflow-hidden rounded-lg">
                         <Image
                           src={
                             service.slug === 'perizinan' 

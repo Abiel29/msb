@@ -38,7 +38,7 @@ export default function ContactMap() {
             viewport={{ once: true }}
             className="lg:col-span-2"
           >
-            <Card className="border-0 shadow-lg overflow-hidden">
+            <Card className="py-0 border-0 shadow-lg overflow-hidden">
               <CardContent className="p-0">
                 <div className="relative h-96 lg:h-[500px]">
                   {/* Google Maps Embed */}
@@ -51,10 +51,10 @@ export default function ContactMap() {
                     loading="lazy" 
                     referrerPolicy="no-referrer-when-downgrade"
                     title="Lokasi Kantor MSB & Partners - Ratu Plaza"
-                  ></iframe>
+                  />
                   
                   {/* Map Overlay */}
-                  <div className="absolute top-4 left-4 bg-white rounded-lg shadow-lg p-4 max-w-xs">
+                  <div className="absolute top-4 right-4 bg-white rounded-lg shadow-lg p-4 max-w-xs">
                     <div className="flex items-center space-x-3">
                       <div className="w-10 h-10 bg-red-700 rounded-lg flex items-center justify-center">
                         <MapPin className="h-5 w-5 text-white" />
@@ -100,22 +100,18 @@ export default function ContactMap() {
             viewport={{ once: true }}
             className="space-y-6"
           >
-
-
-
-
             {/* Landmark Info */}
-            <Card className="border-0 shadow-lg bg-slate-50">
+            <Card className="py-0 border-0 shadow-lg bg-slate-50">
               <CardContent className="p-6">
                 <h3 className="font-semibold text-slate-900 mb-3">Landmark Terdekat</h3>
                 <div className="space-y-2 text-sm text-slate-600">
                   <div className="flex justify-between">
-                    <span>Bundaran Senayan</span>
-                    <span>5 menit</span>
-                  </div>
-                  <div className="flex justify-between">
                     <span>MRT Senayan</span>
                     <span>2 menit</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span>Bundaran Senayan</span>
+                    <span>5 menit</span>
                   </div>
                   <div className="flex justify-between">
                     <span>Plaza Senayan</span>
