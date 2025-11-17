@@ -42,13 +42,13 @@ export default function ContactMap() {
               <CardContent className="p-0">
                 <div className="relative h-96 lg:h-[500px]">
                   {/* Google Maps Embed */}
-                  <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.5338!2d106.8208!3d-6.1936!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f5d2e764b12d%3A0x5c3f0d7f8f8f8f8f!2sRatu%20Plaza!5e0!3m2!1sen!2sid!4v1699999999999!5m2!1sen!2sid&q=Ratu+Plaza,+Jl.+Jend.+Sudirman+No.9,+Jakarta+Pusat"
-                    width="100%"
-                    height="100%"
-                    style={{ border: 0 }}
-                    allowFullScreen
-                    loading="lazy"
+                  <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1029.0113825926942!2d106.8011081!3d-6.2271303!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f10016b80d9d%3A0xaa5c458ca6a55e57!2sMSB%26Partners%20Law%20Office!5e1!3m2!1sid!2sid!4v1763375279448!5m2!1sid!2sid" 
+                    width="100%" 
+                    height="100%" 
+                    style={{border:0}} 
+                    allowFullScreen 
+                    loading="lazy" 
                     referrerPolicy="no-referrer-when-downgrade"
                     title="Lokasi Kantor MSB & Partners - Ratu Plaza"
                   ></iframe>

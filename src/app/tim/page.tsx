@@ -20,7 +20,7 @@ export default function TeamPage() {
         {/* Page Header */}
         <section className="relative py-24 text-white">
           <div className="absolute inset-0">
-            <Image src="https://images.unsplash.com/photo-1543269865-cbf427effbad?q=80&w=1600&auto=format&fit=crop" alt="Tim Kami" fill className="object-cover" />
+            <Image src="/img/tim_kami.jpg" alt="Tim Kami" fill className="object-cover" />
             <div className="absolute inset-0 bg-black/60" />
           </div>
           <div className="relative container mx-auto px-4">

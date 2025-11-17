@@ -20,7 +20,7 @@ export default function AboutPage() {
         {/* Page Header */}
         <section className="relative py-24 text-white">
           <div className="absolute inset-0">
-            <Image src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?q=80&w=1600&auto=format&fit=crop" alt="Tentang Kami" fill className="object-cover" />
+            <Image src="/img/tentang_kami.jpg" alt="Tentang Kami" fill className="object-cover object-[25%_50%] md:object-[50%_10%]" />
             <div className="absolute inset-0 bg-black/60" />
           </div>
           <div className="relative container mx-auto px-4">
