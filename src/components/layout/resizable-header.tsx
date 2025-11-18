@@ -92,7 +92,7 @@ export default function ResizableHeader() {
                     key={item.name}
                     href={item.link}
                     className={cn(
-                      'text-lg md:text-2xl font-medium transition-colors duration-200 py-2 px-4 rounded-md',
+                      'text-md md:text-2xl font-medium transition-colors duration-200 py-2 px-4 rounded-md',
                       isActive ? 'text-red-600 bg-red-50' : 'text-slate-700 hover:text-red-600 hover:bg-gray-50'
                     )}
                     onClick={handleItemClick}

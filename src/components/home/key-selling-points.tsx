@@ -3,13 +3,13 @@
 import React from 'react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { 
-  FaAward, 
-  FaClock, 
-  FaUserCheck, 
-  FaShieldAlt, 
-  FaUsers, 
-  FaLaptopCode 
+import {
+  FaAward,
+  FaClock,
+  FaUserCheck,
+  FaShieldAlt,
+  FaUsers,
+  FaLaptopCode
 } from 'react-icons/fa';
 import { motion } from 'framer-motion';
 import { firmInfo } from '@/lib/dummy-data';
@@ -58,8 +58,8 @@ const keyPoints = [
   }
 ];
 
-const keyPointsTop = keyPoints.slice(0,3)
-const keyPointsBot = keyPoints.slice(3,5)
+const keyPointsTop = keyPoints.slice(0, 3)
+const keyPointsBot = keyPoints.slice(3, 5)
 
 export default function KeySellingPoints() {
   return (
@@ -80,16 +80,17 @@ export default function KeySellingPoints() {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-          {keyPointsTop.map((point, index) => (
+        <div className="flex flex-wrap justify-center gap-6 md:gap-8">
+          {keyPoints.map((point, index) => (
             <motion.div
               key={index}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.4 }}
               viewport={{ once: false, margin: "-50px" }}
+              className="w-full h-auto md:w-[45%] lg:w-[30%] min-h-[200px] max-h-auto"
             >
-              <Card className="h-full hover:shadow-xl hover:scale-105 transition-all duration-300 border-0 shadow-md group">
+              <Card className="py-0 h-full hover:shadow-xl hover:scale-105 transition-all duration-300 border-0 shadow-md group">
                 <CardContent className="p-5 md:p-6 lg:p-8">
                   <div className="flex items-start space-x-3 md:space-x-4">
                     <div className="flex-shrink-0">
@@ -102,9 +103,9 @@ export default function KeySellingPoints() {
                         <h3 className="text-base md:text-lg font-semibold text-slate-900 group-hover:text-red-600 transition-colors duration-300">
                           {point.number ? (
                             <>
-                              <NumberTicker 
-                                value={point.number} 
-                                suffix={point.suffix || ''} 
+                              <NumberTicker
+                                value={point.number}
+                                suffix={point.suffix || ''}
                                 delay={index * 0.2}
                                 className="font-bold text-red-600"
                               />
@@ -129,58 +130,6 @@ export default function KeySellingPoints() {
             </motion.div>
           ))}
         </div>
-
-          <div className='flex justify-center mt-4'>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6 md:gap-8 w-full md:w-[70%]">
-              {keyPointsBot.map((point, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.4 }}
-                  viewport={{ once: false, margin: "-50px" }}
-                >
-                  <Card className="h-full hover:shadow-xl hover:scale-105 transition-all duration-300 border-0 shadow-md group">
-                    <CardContent className="p-5 md:p-6 lg:p-8">
-                      <div className="flex items-start space-x-3 md:space-x-4">
-                        <div className="flex-shrink-0">
-                          <div className="w-12 h-12 bg-red-100 rounded-lg flex items-center justify-center group-hover:bg-red-200 transition-colors duration-300">
-                            <point.icon className="h-6 w-6 text-red-600" />
-                          </div>
-                        </div>
-                        <div className="flex-1">
-                          <div className="flex items-center space-x-2 mb-3">
-                            <h3 className="text-base md:text-lg font-semibold text-slate-900 group-hover:text-red-600 transition-colors duration-300">
-                              {point.number ? (
-                                <>
-                                  <NumberTicker 
-                                    value={point.number} 
-                                    suffix={point.suffix || ''} 
-                                    delay={index * 0.2}
-                                    className="font-bold text-red-600"
-                                  />
-                                  {' '}
-                                  {point.title.replace(/\d+\+?%?/, '').trim()}
-                                </>
-                              ) : (
-                                point.title
-                              )}
-                            </h3>
-                            <Badge variant="secondary" className="text-xs group-hover:bg-red-100 transition-colors duration-300">
-                              {point.badge}
-                            </Badge>
-                          </div>
-                          <p className="text-sm md:text-base text-slate-600 leading-relaxed group-hover:text-slate-700 transition-colors duration-300">
-                            {point.description}
-                          </p>
-                        </div>
-                      </div>
-                    </CardContent>
-                  </Card>
-                </motion.div>
-              ))}
-            </div>
-          </div>
 
       </div>
     </section>

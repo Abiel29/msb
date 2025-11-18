@@ -23,7 +23,7 @@ export default function ManagingPartnerHero() {
           viewport={{ once: true }}
           className="max-w-6xl mx-auto"
         >
-          <Card className="border-0 shadow-2xl overflow-hidden">
+          <Card className="py-0 border-0 shadow-2xl overflow-hidden">
             <CardContent className="p-0">
               <div className="grid grid-cols-1 lg:grid-cols-3 gap-0">
                 <div className="relative h-96 lg:h-auto lg:col-span-1">
@@ -31,7 +31,7 @@ export default function ManagingPartnerHero() {
                     src={managingPartner.image_url || '/img/Mulyadi.jpg'} 
                     alt={managingPartner.name}
                     fill
-                    className="object-cover"
+                    className="object-cover object-[50%_20%] lg:object-center"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent lg:bg-gradient-to-r lg:from-transparent lg:to-transparent" />
                 </div>
