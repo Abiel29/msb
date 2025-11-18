@@ -42,7 +42,7 @@ export default function ServicesPreview() {
             
             return (
               <div key={service.id}>
-                <Card className="h-full hover:shadow-lg transition-all duration-300 border-0 shadow-md group cursor-pointer overflow-hidden">
+                <Card className="py-0 h-full hover:shadow-lg transition-all duration-300 border-0 shadow-md group cursor-pointer overflow-hidden">
                   <Link href={`/layanan/${service.slug}`}>
                     <CardContent className="p-0">
                       <div className="flex flex-col h-full">

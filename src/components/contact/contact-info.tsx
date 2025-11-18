@@ -101,8 +101,9 @@ export default function ContactInfo() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 viewport={{ once: true }}
+                className='min-h-[200px] max-h-auto'
               >
-                <Card className="border-0 shadow-lg hover:shadow-2xl transition-all duration-300 group h-full bg-white overflow-hidden relative">
+                <Card className="py-0 border-0 shadow-lg hover:shadow-2xl transition-all duration-300 group h-full bg-white overflow-hidden relative">
                   <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-red-50 to-transparent rounded-bl-full opacity-50" />
                   <CardContent className="p-8 relative">
                     {method.type === 'contact' && method.icon ? (

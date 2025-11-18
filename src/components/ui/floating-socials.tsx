@@ -12,7 +12,7 @@ export default function FloatingSocials() {
   const socials = [
     {
       label: 'WhatsApp',
-      href: waNumber ? `https://wa.me/${waNumber}` : 'https://wa.me/6281272519788',
+      href: waNumber ? `${`https://wa.me/${firmInfo.whatsapp_number?.replace(/[^0-9]/g, '')}?text=Halo%20saya%20ingin%20bertanya%20mengenai%20layanan%20hukum%20di%20MSB%20and%20Partners`}` : 'https://wa.me/6281272519788',
       icon: FaWhatsapp,
       color: 'text-green-400',
       hover: 'hover:bg-green-500/20',
@@ -27,7 +27,7 @@ export default function FloatingSocials() {
   ];
 
   return (
-    <div className="fixed top-1/3 right-4 z-50 flex flex-col items-center gap-3">
+    <div className="fixed top-1/3 right-4 z-20 flex flex-col items-center gap-3">
       {socials.map(({ label, href, icon: Icon, color, hover }) => (
         <motion.div
           key={label}
@@ -50,9 +50,6 @@ export default function FloatingSocials() {
           </Link>
         </motion.div>
       ))}
-
-      {/* Glass line accent */}
-      <div className="mt-1 h-8 w-[2px] bg-white/20 rounded-full" />
     </div>
   );
 }
