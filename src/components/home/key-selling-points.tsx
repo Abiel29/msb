@@ -88,7 +88,7 @@ export default function KeySellingPoints() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.4 }}
               viewport={{ once: false, margin: "-50px" }}
-              className="w-full h-auto md:w-[45%] lg:w-[30%] min-h-[200px] max-h-auto"
+              className="w-full h-auto md:w-[45%] lg:w-[30%] min-h-[180px] max-h-auto"
             >
               <Card className="py-0 h-full hover:shadow-xl hover:scale-105 transition-all duration-300 border-0 shadow-md group">
                 <CardContent className="p-5 md:p-6 lg:p-8">
@@ -100,7 +100,7 @@ export default function KeySellingPoints() {
                     </div>
                     <div className="flex-1">
                       <div className="flex items-center space-x-2 mb-3">
-                        <h3 className="text-base md:text-lg font-semibold text-slate-900 group-hover:text-red-600 transition-colors duration-300">
+                        <h3 className="text-base font-semibold text-slate-900 group-hover:text-red-600 transition-colors duration-300">
                           {point.number ? (
                             <>
                               <NumberTicker
@@ -120,7 +120,7 @@ export default function KeySellingPoints() {
                           {point.badge}
                         </Badge>
                       </div>
-                      <p className="text-sm md:text-base text-slate-600 leading-relaxed group-hover:text-slate-700 transition-colors duration-300">
+                      <p className="text-xs md:text-sm text-slate-600 leading-relaxed group-hover:text-slate-700 transition-colors duration-300">
                         {point.description}
                       </p>
                     </div>

@@ -9,8 +9,7 @@ import {
   FaLightbulb, 
   FaBalanceScale,
   FaClock,
-  FaGlobe,
-  FaHandsHelping
+  FaBriefcase,
 } from 'react-icons/fa';
 import { motion } from 'framer-motion';
 
@@ -52,7 +51,7 @@ const values = [
     color: 'bg-amber-500'
   },
   {
-    icon: FaGlobe,
+    icon: FaBriefcase,
     title: 'Profesionalisme',
     description: 'Kami menjunjung tinggi standar profesional dalam setiap aspek layanan dan interaksi dengan klien.',
     color: 'bg-red-600'
@@ -135,45 +134,6 @@ export default function FirmValues() {
             </motion.div>
           ))}
         </div>
-
-        {/* Values in Action */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.4 }}
-          viewport={{ once: true }}
-          className="mt-20"
-        >
-          <div className="bg-white rounded-2xl p-8 shadow-lg">
-            <h3 className="text-2xl font-bold text-center text-slate-900 mb-8">
-              Nilai-Nilai dalam Tindakan
-            </h3>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              <div className="text-center">
-                <div className="w-20 h-20 bg-red-600 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <FaShieldAlt className="h-10 w-10 text-white" />
-                </div>
-                <h4 className="text-lg font-semibold text-slate-900 mb-2">
-                  Komitmen Etika
-                </h4>
-                <p className="text-slate-600 text-sm">
-                  Kami mematuhi kode etik profesi dan standar tertinggi dalam praktik hukum
-                </p>
-              </div>
-              <div className="text-center">
-                <div className="w-20 h-20 bg-amber-500 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <FaHandsHelping className="h-10 w-10 text-white" />
-                </div>
-                <h4 className="text-lg font-semibold text-slate-900 mb-2">
-                  Kepedulian Sosial
-                </h4>
-                <p className="text-slate-600 text-sm">
-                  Kami aktif dalam program pro bono dan kegiatan sosial untuk membantu masyarakat
-                </p>
-              </div>
-            </div>
-          </div>
-        </motion.div>
 
         {/* Quote */}
         <motion.div
