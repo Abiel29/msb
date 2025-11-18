@@ -49,28 +49,30 @@ export default function VisionMission() {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
+        <div className="flex flex-col gap-4 items-center ">
           {/* Vision Card */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
             viewport={{ once: true }}
+            className={"w-full"}
+            // className={"md:w-[70%] lg:w-[50%]"}
           >
             <Card className="h-full border-0 shadow-lg hover:shadow-xl transition-shadow duration-300">
-              <CardContent className="p-8">
+              <CardContent className="p-8 text-center flex flex-col items-center">
                 <div className="flex items-center mb-6">
-                  <div className="w-12 h-12 bg-red-100 rounded-lg flex items-center justify-center mr-4">
-                    <FaBullseye className="h-6 w-6 text-red-600" />
-                  </div>
-                  <h3 className="text-2xl font-bold text-slate-900">Visi</h3>
+                  {/*<div className="w-12 h-12 bg-red-100 rounded-lg flex items-center justify-center mr-4">*/}
+                  {/*  <FaBullseye className="h-6 w-6 text-red-600" />*/}
+                  {/*</div>*/}
+                  <h3 className="text-2xl font-bold text-slate-900 w-full">Visi</h3>
                 </div>
                 
-                <p className="text-slate-700 text-lg leading-relaxed mb-6 text-left">
+                <p className="text-slate-700 text-lg leading-relaxed mb-6 md:w-[70%] lg:w-[50%]">
                   Menjadi firma hukum terdepan yang dipercaya dalam memberikan solusi hukum inovatif dan komprehensif.
                 </p>
 
-                <div className="space-y-4">
+                <div className="space-y-4 w-fit ">
                   {visionPoints.map((point, index) => (
                     <motion.div
                       key={index}
@@ -81,7 +83,7 @@ export default function VisionMission() {
                       className="flex items-start"
                     >
                       <FaCheckCircle className="h-5 w-5 text-red-600 mr-3 mt-0.5 flex-shrink-0" />
-                      <span className="text-slate-600">{point}</span>
+                      <span className="text-slate-600 text-start">{point}</span>
                     </motion.div>
                   ))}
                 </div>
@@ -95,21 +97,23 @@ export default function VisionMission() {
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
             viewport={{ once: true }}
+            className={"w-full"}
+            // className={"md:w-[70%] lg:w-[50%]"}
           >
             <Card className="h-full border-0 shadow-lg hover:shadow-xl transition-shadow duration-300">
-              <CardContent className="p-8">
+              <CardContent className="p-8 text-center flex flex-col items-center">
                 <div className="flex items-center mb-6">
-                  <div className="w-12 h-12 bg-amber-100 rounded-lg flex items-center justify-center mr-4">
-                    <FaCompass className="h-6 w-6 text-amber-600" />
-                  </div>
-                  <h3 className="text-2xl font-bold text-slate-900">Misi</h3>
+                  {/*<div className="w-12 h-12 bg-amber-100 rounded-lg flex items-center justify-center mr-4">*/}
+                  {/*  <FaCompass className="h-6 w-6 text-amber-600" />*/}
+                  {/*</div>*/}
+                  <h3 className="text-2xl font-bold text-slate-900 w-full">Misi</h3>
                 </div>
                 
-                <p className="text-slate-700 text-lg leading-relaxed mb-6 text-left">
+                <p className="text-slate-700 text-lg leading-relaxed mb-6 md:w-[70%] lg:w-[50%]">
                   Memberikan layanan hukum berkualitas dengan pendekatan personal dan profesional untuk melindungi hak dan kepentingan klien.
                 </p>
 
-                <div className="space-y-4">
+                <div className="space-y-4 w-fit">
                   {missionPoints.map((point, index) => (
                     <motion.div
                       key={index}
@@ -120,7 +124,7 @@ export default function VisionMission() {
                       className="flex items-start"
                     >
                       <FaCheckCircle className="h-5 w-5 text-amber-600 mr-3 mt-0.5 flex-shrink-0" />
-                      <span className="text-slate-600">{point}</span>
+                      <span className="text-slate-600 text-start">{point}</span>
                     </motion.div>
                   ))}
                 </div>

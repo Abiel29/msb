@@ -2,14 +2,10 @@
 
 import React from 'react';
 import { Card, CardContent } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
 import { 
   FaPhone,
   FaEnvelope,
   FaWhatsapp,
-  FaLinkedin,
-  FaInstagram,
-  FaFacebook
 } from 'react-icons/fa';
 import { firmInfo } from '@/lib/dummy-data';
 import { motion } from 'framer-motion';
@@ -42,33 +38,6 @@ const contactMethods = [
     color: 'bg-purple-500',
     type: 'contact'
   },
-  {
-    title: 'Ikuti Kami',
-    description: 'Dapatkan update terbaru tentang hukum dan tips legal',
-    color: 'bg-blue-500',
-    type: 'social'
-  }
-];
-
-const socialLinks = [
-  {
-    icon: FaLinkedin,
-    name: 'LinkedIn',
-    url: '#',
-    color: 'hover:text-red-600'
-  },
-  {
-    icon: FaInstagram,
-    name: 'Instagram',
-    url: '#',
-    color: 'hover:text-pink-600'
-  },
-  {
-    icon: FaFacebook,
-    name: 'Facebook',
-    url: '#',
-    color: 'hover:text-red-700'
-  }
 ];
 
 export default function ContactInfo() {
@@ -93,7 +62,7 @@ export default function ContactInfo() {
           </div>
 
           {/* Contact Methods - 2 Column Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="flex flex-wrap justify-center gap-6 md:gap-8">
             {contactMethods.map((method, index) => (
               <motion.div
                 key={index}
@@ -101,12 +70,11 @@ export default function ContactInfo() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 viewport={{ once: true }}
-                className='min-h-[200px] max-h-auto'
+                className="w-full md:w-[45%] h-auto"
               >
                 <Card className="py-0 border-0 shadow-lg hover:shadow-2xl transition-all duration-300 group h-full bg-white overflow-hidden relative">
                   <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-red-50 to-transparent rounded-bl-full opacity-50" />
                   <CardContent className="p-8 relative">
-                    {method.type === 'contact' && method.icon ? (
                       <a
                         href={method.action}
                         target={method.action?.startsWith('http') ? '_blank' : undefined}
@@ -126,30 +94,6 @@ export default function ContactInfo() {
                           </div>
                         </div>
                       </a>
-                    ) : (
-                      <div className="group-hover:scale-[1.02] transition-transform duration-300">
-                        <h3 className="text-xl font-bold text-slate-900 mb-4">
-                          {method.title}
-                        </h3>
-                        <div className="flex space-x-4 mb-4">
-                          {socialLinks.map((social, idx) => (
-                            <a
-                              key={idx}
-                              href={social.url}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              className={`w-12 h-12 bg-slate-100 rounded-xl flex items-center justify-center text-slate-600 ${social.color} transition-all duration-200 hover:scale-110 shadow-md`}
-                              aria-label={social.name}
-                            >
-                              <social.icon className="h-6 w-6" />
-                            </a>
-                          ))}
-                        </div>
-                        <p className="text-slate-500 text-sm leading-relaxed">
-                          {method.description}
-                        </p>
-                      </div>
-                    )}
                   </CardContent>
                 </Card>
               </motion.div>
