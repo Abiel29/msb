@@ -50,9 +50,13 @@ export default function ManagingPartnerHero() {
                   </div>
 
                   <div className="prose prose-slate max-w-none mb-8">
-                    <p className="text-slate-700 leading-relaxed text-justify">
-                      {managingPartner.bio}
-                    </p>
+                    <div className='flex flex-col gap-4'>
+                      {managingPartner.bio?.map((b, index) => (
+                        <p key={index} className="text-slate-700 indent-8 leading-relaxed text-justify">
+                          {b}
+                        </p>
+                      ))}
+                    </div>
                   </div>
 
                   <div className="flex flex-wrap gap-4 pt-6 border-t border-slate-200">
