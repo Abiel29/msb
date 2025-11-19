@@ -24,7 +24,7 @@ export interface TeamMember {
   name: string;
   position?: string;
   specialization?: string;
-  bio?: string;
+  bio?: string[];
   image_url?: string;
   linkedin_url?: string;
   email?: string;
