@@ -74,20 +74,20 @@ export const teamMembers: TeamMember[] = [
     created_at: '2024-01-01T00:00:00Z',
     updated_at: '2024-01-01T00:00:00Z'
   },
-  {
-    id: 4,
-    name: 'Muhamad Irvan Maulana, S.H., M.H.',
-    position: 'Associate',
-    specialization: 'Litigasi, Arbitrase',
-    bio: ['Spesialis litigasi dan arbitrase dengan pengalaman menangani kasus-kasus kompleks di berbagai tingkat pengadilan. Ahli dalam strategi penyelesaian sengketa yang efektif.'],
-    image_url: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=300&h=300&fit=crop&crop=face',
-    linkedin_url: 'https://linkedin.com/in/irvan-maulana',
-    email: 'irvan@msbpartners.com',
-    order_index: 3,
-    is_active: true,
-    created_at: '2024-01-01T00:00:00Z',
-    updated_at: '2024-01-01T00:00:00Z'
-  },
+  // {
+  //   id: 4,
+  //   name: 'Muhamad Irvan Maulana, S.H., M.H.',
+  //   position: 'Associate',
+  //   specialization: 'Litigasi, Arbitrase',
+  //   bio: ['Spesialis litigasi dan arbitrase dengan pengalaman menangani kasus-kasus kompleks di berbagai tingkat pengadilan. Ahli dalam strategi penyelesaian sengketa yang efektif.'],
+  //   image_url: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=300&h=300&fit=crop&crop=face',
+  //   linkedin_url: 'https://linkedin.com/in/irvan-maulana',
+  //   email: 'irvan@msbpartners.com',
+  //   order_index: 3,
+  //   is_active: true,
+  //   created_at: '2024-01-01T00:00:00Z',
+  //   updated_at: '2024-01-01T00:00:00Z'
+  // },
   {
     id: 5,
     name: 'Salsabila Azaria Rachma, S.H.',
