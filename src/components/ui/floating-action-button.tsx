@@ -66,7 +66,7 @@ export default function FloatingActionButton({
     {
       icon: Mail,
       label: "Email",
-      href: "mailto:corporate.legal3@panusa-indo.com",
+      href: "mailto:help@msbp-law.com",
       color: "bg-red-500 hover:bg-red-600"
     }
   ];

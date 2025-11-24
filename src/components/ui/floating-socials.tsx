@@ -19,7 +19,7 @@ export default function FloatingSocials() {
     },
     {
       label: 'Email',
-      href: 'mailto:corporate.legal3@panusa-indo.com',
+      href: 'mailto:help@msbp-law.com',
       icon: FaEnvelope,
       color: 'text-blue-400',
       hover: 'hover:bg-blue-500/20',
