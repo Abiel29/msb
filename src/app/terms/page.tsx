@@ -4,7 +4,9 @@ import { firmInfo } from '@/lib/dummy-data';
 
 export const metadata: Metadata = {
   title: `Syarat & Ketentuan - ${firmInfo.name}`,
-  description: 'Syarat dan ketentuan penggunaan layanan hukum di Hukum Prima & Associates.',
+  description: 'Syarat dan ketentuan penggunaan layanan hukum di MSB & Partners.',
+  alternates: { canonical: '/terms' },
+  robots: { index: true, follow: true },
 };
 
 export default function TermsPage() {

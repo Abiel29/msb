@@ -4,7 +4,9 @@ import { firmInfo } from '@/lib/dummy-data';
 
 export const metadata: Metadata = {
   title: `Kebijakan Privasi - ${firmInfo.name}`,
-  description: 'Kebijakan privasi dan perlindungan data pribadi di Hukum Prima & Associates.',
+  description: 'Kebijakan privasi dan perlindungan data pribadi di MSB & Partners.',
+  alternates: { canonical: '/privacy' },
+  robots: { index: true, follow: true },
 };
 
 export default function PrivacyPage() {

@@ -6,6 +6,7 @@ import { firmNews } from '@/lib/dummy-data';
 import Image from 'next/image';
 import Link from 'next/link';
 import ShareButtons from '@/components/news/share-buttons';
+import { firmInfo } from '@/lib/dummy-data';
 
 interface NewsPageProps {
   params: { slug: string };
@@ -19,8 +20,23 @@ export async function generateMetadata({ params }: NewsPageProps): Promise<Metad
   const news = firmNews.find(n => n.slug === params.slug);
   if (!news) return { title: 'Berita Tidak Ditemukan' };
   return {
-    title: `${news.title} - Berita`,
+    title: `${news.title} | ${firmInfo.name}`,
     description: news.summary || 'Berita dari firma kami',
+    alternates: { canonical: `/berita/${news.slug}` },
+    robots: { index: true, follow: true },
+    openGraph: {
+      title: `${news.title} | ${firmInfo.name}`,
+      description: news.summary || 'Berita dari firma kami',
+      type: 'article',
+      url: `https://msblawfirm.id/berita/${news.slug}`,
+      images: [{ url: news.image_url || '/msb.png' }],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: `${news.title} | ${firmInfo.name}`,
+      description: news.summary || 'Berita dari firma kami',
+      images: [news.image_url || '/msb.png'],
+    },
   };
 }
 
@@ -85,6 +101,30 @@ export default function NewsDetailPage({ params }: NewsPageProps) {
             </div>
           </div>
         </section>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "NewsArticle",
+              headline: news.title,
+              description: news.summary || 'Berita dari firma kami',
+              image: [news.image_url || 'https://msblawfirm.id/msb.png'],
+              datePublished: news.published_at,
+              dateModified: news.updated_at || news.published_at,
+              author: [{ "@type": "Organization", name: firmInfo.name }],
+              publisher: {
+                "@type": "Organization",
+                name: firmInfo.name,
+                logo: { "@type": "ImageObject", url: 'https://msblawfirm.id/msb.png' },
+              },
+              mainEntityOfPage: {
+                "@type": "WebPage",
+                "@id": `https://msblawfirm.id/berita/${news.slug}`,
+              },
+            }),
+          }}
+        />
       </div>
     </MainLayout>
   );

@@ -11,6 +11,21 @@ export const metadata: Metadata = {
   title: `Layanan Hukum - ${firmInfo.name}`,
   description: 'Layanan hukum komprehensif meliputi hukum korporasi, litigasi, properti, keluarga, HKI, dan ketenagakerjaan. Konsultasi gratis tersedia.',
   keywords: 'layanan hukum, pengacara, konsultasi hukum, hukum korporasi, litigasi, properti, jakarta',
+  alternates: { canonical: '/layanan' },
+  robots: { index: true, follow: true },
+  openGraph: {
+    title: `Layanan Hukum - ${firmInfo.name}`,
+    description: 'Layanan hukum komprehensif meliputi hukum korporasi, litigasi, properti, keluarga, HKI, dan ketenagakerjaan. Konsultasi gratis tersedia.',
+    url: 'https://msblawfirm.id/layanan',
+    type: 'website',
+    images: [{ url: '/msb.png' }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: `Layanan Hukum - ${firmInfo.name}`,
+    description: 'Layanan hukum komprehensif meliputi hukum korporasi, litigasi, properti, keluarga, HKI, dan ketenagakerjaan. Konsultasi gratis tersedia.',
+    images: ['/msb.png'],
+  },
 };
 
 export default function ServicesPage() {
