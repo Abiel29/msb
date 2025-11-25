@@ -3,6 +3,7 @@ import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import ServiceDetail from '@/components/services/service-detail';
 import { services } from '@/lib/dummy-data';
+import { firmInfo } from '@/lib/dummy-data';
 
 interface ServicePageProps {
   params: {
@@ -21,14 +22,34 @@ export async function generateMetadata({ params }: ServicePageProps): Promise<Me
   
   if (!service) {
     return {
-      title: 'Layanan Tidak Ditemukan',
+      title: 'Layanan Tidak Ditemukan - MSB & Partners',
     };
   }
 
   return {
-    title: `${service.title} - Hukum Prima & Associates`,
+    title: `${service.title} | ${firmInfo.name}`,
     description: service.short_description,
     keywords: `${service.title.toLowerCase()}, layanan hukum, pengacara, konsultasi hukum, jakarta`,
+    alternates: {
+      canonical: `/layanan/${service.slug}`,
+    },
+    robots: {
+      index: true,
+      follow: true,
+    },
+    openGraph: {
+      title: `${service.title} | ${firmInfo.name}`,
+      description: service.short_description,
+      type: 'website',
+      url: `https://msblawfirm.id/layanan/${service.slug}`,
+      images: [{ url: '/msb.png' }],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: `${service.title} | ${firmInfo.name}`,
+      description: service.short_description,
+      images: ['/msb.png'],
+    },
   };
 }
 

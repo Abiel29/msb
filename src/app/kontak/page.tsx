@@ -11,6 +11,8 @@ export const metadata: Metadata = {
   title: `Hubungi Kami - ${firmInfo.name}`,
   description: 'Hubungi Hukum Prima & Associates untuk konsultasi hukum gratis. Tersedia WhatsApp, telepon, email, dan kunjungan langsung ke kantor kami di Jakarta.',
   keywords: 'kontak, konsultasi hukum, whatsapp, telepon, email, alamat kantor, jakarta',
+  alternates: { canonical: '/kontak' },
+  robots: { index: true, follow: true },
 };
 
 export default function ContactPage() {

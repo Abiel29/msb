@@ -2,6 +2,11 @@ import { AuthProvider } from '@/lib/auth-context';
 import ProtectedRoute from '@/components/admin/protected-route';
 import AdminSidebar from '@/components/admin/admin-sidebar';
 import AdminHeader from '@/components/admin/admin-header';
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  robots: { index: false, follow: false },
+};
 
 export default function AdminLayout({
   children,

@@ -11,6 +11,8 @@ export const metadata: Metadata = {
   title: `Tentang Kami - ${firmInfo.name}`,
   description: "MSB & Partners adalah firma hukum yang berkomitmen untuk memberikan layanan hukum yang profesional, terpercaya, dan solutif bagi klien individu maupun korporasi.",
   keywords: "tentang kami, firma hukum, tim pengacara, misi visi, jakarta, msb partners",
+  alternates: { canonical: "/tentang" },
+  robots: { index: true, follow: true },
 };
 
 export default function AboutPage() {

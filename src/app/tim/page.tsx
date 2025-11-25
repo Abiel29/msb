@@ -11,6 +11,21 @@ export const metadata: Metadata = {
   title: `Tim Kami - ${firmInfo.name}`,
   description: 'Bertemu dengan tim ahli hukum berpengalaman di MSB & Partners. Pengacara profesional dengan spesialisasi di berbagai bidang hukum.',
   keywords: 'tim pengacara, ahli hukum, pengacara berpengalaman, spesialis hukum, jakarta',
+  alternates: { canonical: '/tim' },
+  robots: { index: true, follow: true },
+  openGraph: {
+    title: `Tim Kami - ${firmInfo.name}`,
+    description: 'Bertemu dengan tim ahli hukum berpengalaman di MSB & Partners. Pengacara profesional dengan spesialisasi di berbagai bidang hukum.',
+    url: 'https://msblawfirm.id/tim',
+    type: 'website',
+    images: [{ url: '/msb.png' }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: `Tim Kami - ${firmInfo.name}`,
+    description: 'Bertemu dengan tim ahli hukum berpengalaman di MSB & Partners. Pengacara profesional dengan spesialisasi di berbagai bidang hukum.',
+    images: ['/msb.png'],
+  },
 };
 
 export default function TeamPage() {
