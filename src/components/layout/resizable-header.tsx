@@ -58,12 +58,12 @@ export default function ResizableHeader() {
     <div className="relative w-full">
       <Navbar className="fixed top-0 inset-x-0 z-50">
         {/* Desktop Navigation */}
-        <NavBody>
-          <div className="flex items-center">
+        <NavBody className='py-4'>
+          <div className="flex items-center absolute left-6">
             <MSBLogo />
           </div>
-          <NavItems items={navigation} onItemClick={handleItemClick} pathname={pathname} />
-          <div className="flex items-center space-x-2">
+          <NavItems items={navigation} onItemClick={handleItemClick} pathname={pathname} className='' />
+          {/* <div className="flex items-center space-x-2">
             <NavbarButton 
               href="https://drive.google.com/drive/folders/1QtoEPqDjmlEtPPvScYRts9DO8xiO6tig?usp=drive_link" 
               variant="primary"
@@ -73,7 +73,7 @@ export default function ResizableHeader() {
             >
               Portofolio
             </NavbarButton>
-          </div>
+          </div> */}
         </NavBody>
 
         {/* Mobile Navigation */}
@@ -114,7 +114,7 @@ export default function ResizableHeader() {
                 </div>
               </div>
               
-              <NavbarButton 
+              {/* <NavbarButton 
                 href="https://drive.google.com/drive/folders/1QtoEPqDjmlEtPPvScYRts9DO8xiO6tig?usp=drive_link" 
                 variant="primary"
                 className="bg-red-600 hover:bg-red-700 text-white shadow-lg w-full mt-4"
@@ -123,7 +123,7 @@ export default function ResizableHeader() {
                 rel="noopener noreferrer"
               >
                 Portofolio
-              </NavbarButton>
+              </NavbarButton> */}
             </div>
           </MobileNavMenu>
         </MobileNav>
