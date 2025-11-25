@@ -11,15 +11,57 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: firmInfo.seo_title || firmInfo.name,
+  metadataBase: new URL("https://msblawfirm.id"),
+  title: {
+    default: firmInfo.seo_title || firmInfo.name,
+    template: "%s | MSB & Partners",
+  },
   description: firmInfo.seo_description || firmInfo.tagline,
   keywords: "firma hukum, pengacara, konsultasi hukum, jakarta, indonesia",
   authors: [{ name: firmInfo.name }],
+  alternates: {
+    canonical: "/",
+    languages: {
+      "id-ID": "https://msblawfirm.id/",
+    },
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-snippet": -1,
+      "max-image-preview": "large",
+      "max-video-preview": -1,
+    },
+  },
   openGraph: {
     title: firmInfo.seo_title || firmInfo.name,
     description: firmInfo.seo_description || firmInfo.tagline,
     type: "website",
     locale: "id_ID",
+    url: "https://msblawfirm.id/",
+    siteName: "MSB & Partners",
+    images: [
+      {
+        url: "/msb.png",
+        width: 1200,
+        height: 630,
+        alt: firmInfo.name,
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: firmInfo.seo_title || firmInfo.name,
+    description: firmInfo.seo_description || firmInfo.tagline,
+    images: ["/msb.png"],
+  },
+  manifest: "/manifest.webmanifest",
+  icons: {
+    icon: "/favicon.ico",
+    apple: "/msb.png",
   },
 };
 
@@ -34,6 +76,34 @@ export default function RootLayout({
         {children}
         <FloatingSocials />
         <ScrollToTop />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "LegalService",
+              name: firmInfo.name,
+              alternateName: [
+                "MSB Law Firm",
+                "MSB Firma Hukum",
+                "MSB & Partners"
+              ],
+              url: "https://msblawfirm.id/",
+              logo: "https://msblawfirm.id/msb.png",
+              image: "https://msblawfirm.id/msb.png",
+              description: firmInfo.seo_description || firmInfo.tagline,
+              telephone: firmInfo.phone,
+              email: firmInfo.email,
+              address: {
+                "@type": "PostalAddress",
+                streetAddress: firmInfo.address,
+                addressCountry: "ID",
+              },
+              openingHours: "Mo-Fr 09:00-18:00",
+              priceRange: "RpRpRp",
+            }),
+          }}
+        />
       </body>
     </html>
   );

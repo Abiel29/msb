@@ -54,7 +54,7 @@ export default function TeamGrid() {
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
                   viewport={{ once: true }}
-                  className="w-full h-auto md:w-[45%] lg:w-[30%]"
+                  className="w-full h-auto md:w-[45%]"
                 >
                   <Card className="py-0 border-0 shadow-md hover:shadow-xl transition-all duration-300 group overflow-hidden h-full">
                     <CardContent className="p-6 relative">
